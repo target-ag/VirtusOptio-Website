@@ -22,7 +22,7 @@ Open [the local preview](http://127.0.0.1:8000/). The preview includes draft blo
 .venv/bin/python -m mkdocs build --strict
 ```
 
-The generated website is written to `site/`, which is excluded from Git. The GitHub Actions workflow checks this build on pushes and pull requests; Cloudflare Pages handles hosting.
+The generated website is written to `site/`, which is excluded from Git. Cloudflare Pages runs the production build and hosts the result whenever `main` changes.
 
 ## Deploy with Cloudflare Pages
 

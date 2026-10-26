@@ -42,7 +42,7 @@ Social-card generation is disabled so the site does not require native imaging l
 
 ## Publish to Cloudflare Pages
 
-The website's GitHub destination is `target-ag/VirtusOptio-Website`. Cloudflare Pages hosts the production build; the GitHub Actions workflow only validates the build.
+The website's GitHub destination is `target-ag/VirtusOptio-Website`. Cloudflare Pages runs the production build and hosts the result whenever `main` changes.
 
 1. Create or sign in to a Cloudflare account. In Workers & Pages, create a Pages project and connect GitHub.
 2. Grant access to `target-ag/VirtusOptio-Website`, then select that repository and production branch `main`.
