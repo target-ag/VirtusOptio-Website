@@ -4,7 +4,7 @@ The Virtus Optio website for Mark Deniel: ethical selling, practical sales syste
 
 ## Local preview
 
-Use Python 3.11, matching `.python-version` and the production build.
+Use Python 3.11.18, matching `.python-version` and the production build.
 
 ```sh
 git clone https://github.com/target-ag/VirtusOptio-Website.git
@@ -20,6 +20,7 @@ Open [the local preview](http://127.0.0.1:8000/). The preview includes draft blo
 
 ```sh
 .venv/bin/python -m mkdocs build --strict
+.venv/bin/python scripts/check_security.py site
 ```
 
 The generated website is written to `site/`, which is excluded from Git. Cloudflare Pages runs the production build and hosts the result whenever `main` changes.
@@ -36,10 +37,10 @@ The canonical production URL is [virtusoptio.com](https://virtusoptio.com/), con
    | --- | --- |
    | Production branch | `main` |
    | Framework preset | `None` |
-   | Build command | `pip install -r requirements.txt && mkdocs build --strict` |
+   | Build command | `pip install -r requirements.txt && mkdocs build --strict && python scripts/check_security.py site` |
    | Build output directory | `site` |
    | Root directory | Repository root; leave blank |
-   | Environment variable | `PYTHON_VERSION=3.11` |
+   | Environment variable | `PYTHON_VERSION=3.11.18` |
 
 4. Save and deploy. Cloudflare provides an HTTPS address ending in `.pages.dev` and rebuilds the site when `main` changes.
 5. Connect `virtusoptio.com` and `www.virtusoptio.com` under **Custom domains**. Keep `site_url: https://virtusoptio.com/` in `mkdocs.yml` so canonical links and the sitemap use the main domain.

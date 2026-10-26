@@ -2,7 +2,7 @@
   <a class="wordmark" href="{{ '.' | url }}" aria-label="Virtus Optio home">{% include "partials/brand-logo.html" %}</a>
   <div class="header-actions">
     <nav class="site-navigation" aria-label="Main navigation">
-      {% if page.meta.template == 'blog-post.html' %}
+      {% if page and page.meta.template == 'blog-post.html' %}
       <a class="post-back" href="{{ 'blog/' | url }}">← Back to blog</a>
       {% else %}
       <a href="{{ 'blog/' | url }}">Blog</a>

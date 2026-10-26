@@ -6,7 +6,7 @@ This project uses the Datalumina MkDocs template, customized for Virtus Optio wi
 
 Run `./serve.sh` in this folder and visit http://127.0.0.1:8000.
 
-For a fresh installation, use Python 3.11 to match `.python-version` and the production build:
+For a fresh installation, use Python 3.11.18 to match `.python-version` and the production build:
 
 ```sh
 python3.11 -m venv .venv
@@ -14,7 +14,7 @@ python3.11 -m venv .venv
 ./serve.sh
 ```
 
-Build with `.venv/bin/python -m mkdocs build --strict`. Output goes into the ignored `site/` directory.
+Build with `.venv/bin/python -m mkdocs build --strict`, then run `.venv/bin/python scripts/check_security.py site`. Output goes into the ignored `site/` directory.
 
 ## Content
 
@@ -48,8 +48,8 @@ The canonical production URL is `https://virtusoptio.com/`. The existing Pages d
 
 1. Create or sign in to a Cloudflare account. In Workers & Pages, create a Pages project and connect GitHub.
 2. Grant access to `target-ag/VirtusOptio-Website`, then select that repository and production branch `main`.
-3. Choose framework preset `None`, leave the root directory blank, set the build command to `pip install -r requirements.txt && mkdocs build --strict`, and set the output directory to `site`.
-4. Set the environment variable `PYTHON_VERSION` to `3.11`, matching the project's `.python-version`, and deploy.
+3. Choose framework preset `None`, leave the root directory blank, set the build command to `pip install -r requirements.txt && mkdocs build --strict && python scripts/check_security.py site`, and set the output directory to `site`.
+4. Set the environment variable `PYTHON_VERSION` to `3.11.18`, matching the project's `.python-version`, and deploy.
 5. Cloudflare assigns an HTTPS `.pages.dev` address. Future pushes to `main` trigger new production deployments.
 6. Open the Pages project's Custom domains tab to connect `virtusoptio.com` and `www.virtusoptio.com`, following Cloudflare's DNS instructions. Keep `site_url: https://virtusoptio.com/` in `mkdocs.yml` so canonical links and the sitemap use the main domain.
 

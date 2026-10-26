@@ -1,0 +1,21 @@
+Source Sans 3 (normal, variable weight 400–700)
+Retrieved 2026-10-26, unmodified WOFF2 subsets served by Google Fonts.
+
+CSS source:
+https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400..700&display=swap
+
+Latin:
+https://fonts.gstatic.com/s/sourcesans3/v20/nwpStKy2OAdR1K-IwhWudF-R3w8aZQ.woff2
+
+Latin extended:
+https://fonts.gstatic.com/s/sourcesans3/v20/nwpStKy2OAdR1K-IwhWudF-R3wEaZfrc.woff2
+
+License source:
+https://raw.githubusercontent.com/adobe-fonts/source-sans/release/LICENSE.md
+
+Project:
+https://github.com/adobe-fonts/source-sans
+
+The exact Google Fonts unicode-range declarations are retained in
+../../stylesheets/fonts.css. The Latin subset is sufficient for this site's
+English text; the extended subset is downloaded only when its glyphs are needed.

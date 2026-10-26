@@ -1,0 +1,13 @@
+# Cloudflare Pages applies these response headers to every static page and asset.
+# Keep scripts local; only the exact build-hashed theme initializer may be inline.
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'sha256-THEME_INIT_HASH'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; font-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; form-action 'none'; upgrade-insecure-requests
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000
+
+# The filename changes whenever any shared style changes.
+/stylesheets/site-*.css
+  Cache-Control: public, max-age=31536000, immutable

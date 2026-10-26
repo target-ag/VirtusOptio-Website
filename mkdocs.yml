@@ -5,6 +5,9 @@ site_description: Ethical selling and practical sales systems to help businesses
 watch:
   - overrides
 
+hooks:
+  - hooks/assets.py
+
 nav:
   - Home:
     - About: index.md

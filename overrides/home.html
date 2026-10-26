@@ -3,17 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>try{document.documentElement.dataset.theme=localStorage.getItem('virtus-optio-theme')==='dark'?'dark':'light'}catch(e){document.documentElement.dataset.theme='light'}</script>
-  <meta name="description" content="{{ page.meta.description | default(config.site_description, true) | e }}">
+  <script>{{ config.extra.theme_init }}</script>
+  <meta name="description" content="{{ (page.meta.description | default(config.site_description, true) if page else config.site_description) | e }}">
   <title>{% block title %}{{ config.site_name }} — Ethical Selling &amp; Sales Systems{% endblock %}</title>
-  {% if page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ 'stylesheets/home.css' | url }}">
-  {% block page_styles %}{% endblock %}
-  <link rel="stylesheet" href="{{ 'stylesheets/theme.css' | url }}">
-  <link rel="stylesheet" href="{{ 'stylesheets/navigation.css' | url }}">
+  {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url | e }}">{% endif %}
+  <link rel="preload" href="{{ 'assets/fonts/source-sans-3-latin-v20.woff2' | url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ config.extra.site_css | url }}">
   <script src="{{ 'javascripts/theme.js' | url }}" defer></script>
 </head>
 <body>
@@ -30,7 +25,7 @@
         <p class="intro">I help businesses turn more sales conversations into customers through ethical selling and practical sales systems, so business owners can spend more time working on their business, not in it.</p>
         <a class="call-button" href="https://www.linkedin.com/in/mark-d-819a57224/" target="_blank" rel="noopener noreferrer">Find me on LinkedIn <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="portrait-frame"><img class="portrait-photo" src="{{ 'assets/mark-deniel-office-cobalt-mug.svg' | url }}" alt="Mark Deniel at his desk in a bright office" width="1254" height="1254" fetchpriority="high"></div>
+      <div class="portrait-frame"><img class="portrait-photo" src="{{ 'assets/mark-deniel-office-768.webp' | url }}" srcset="{{ 'assets/mark-deniel-office-480.webp' | url }} 480w, {{ 'assets/mark-deniel-office-768.webp' | url }} 768w, {{ 'assets/mark-deniel-office-1024.webp' | url }} 1024w, {{ 'assets/mark-deniel-office-1254.webp' | url }} 1254w" sizes="(max-width: 459px) calc(125vw - 63.75px), 510px" alt="Mark Deniel at his desk in a bright office" width="1254" height="1254" decoding="async" fetchpriority="high"></div>
     </section>
     <section class="faq" aria-labelledby="faq-heading">
       <p class="eyebrow">A few things you might be wondering</p>

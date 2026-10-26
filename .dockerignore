@@ -1,0 +1,34 @@
+# Keep local credentials and repository history out of the image build context.
+.git
+.venv
+venv
+.env
+.env.*
+**/.env
+**/.env.*
+.ssh
+.aws
+.codex
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+**/id_rsa*
+**/id_ed25519*
+
+# Generated output, caches, and local design artifacts are not source inputs.
+site
+build
+dist
+**/__pycache__
+**/*.pyc
+.cache
+.pytest_cache
+.mypy_cache
+**/.DS_Store
+**/*.log
+/*-preview.png
+/loading-speed-results.json
+/logo-design-prompt.txt
+/logo-recolor-prompt.txt
+/mug-color-edit-prompt.txt

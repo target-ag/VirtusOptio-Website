@@ -1,3 +1,6 @@
 <svg class="brand-color-filter" width="0" height="0" aria-hidden="true" focusable="false"><defs><filter id="brand-cobalt" color-interpolation-filters="sRGB"><feFlood flood-color="#2D57C7"/><feComposite in2="SourceAlpha" operator="in"/></filter></defs></svg>
-<span class="brand-symbol" aria-hidden="true"><span class="brand-symbol-base"><img src="{{ 'assets/brand/virtus-optio-logo-purple-blue.webp' | url }}" alt="" width="2137" height="736"></span><span class="brand-symbol-accent"><img src="{{ 'assets/brand/virtus-optio-logo-purple-blue.webp' | url }}" alt="" width="2137" height="736"></span></span>
-<span class="brand-name" aria-hidden="true"><img src="{{ 'assets/brand/virtus-optio-logo-purple-blue.webp' | url }}" alt="" width="2137" height="736"></span>
+{% set logo_src = 'assets/brand/virtus-optio-logo-640.webp' | url %}
+{% set logo_srcset = ('assets/brand/virtus-optio-logo-320.webp' | url) ~ ' 320w, ' ~ ('assets/brand/virtus-optio-logo-640.webp' | url) ~ ' 640w, ' ~ ('assets/brand/virtus-optio-logo-960.webp' | url) ~ ' 960w' %}
+{% set logo_sizes = '(max-width: 360px) 160px, (max-width: 440px) 197px, (max-width: 640px) 218px, (max-width: 767px) 247px, 290px' %}
+<span class="brand-symbol" aria-hidden="true"><span class="brand-symbol-base"><img src="{{ logo_src }}" srcset="{{ logo_srcset }}" sizes="{{ logo_sizes }}" alt="" width="2137" height="736" decoding="async"></span><span class="brand-symbol-accent"><img src="{{ logo_src }}" srcset="{{ logo_srcset }}" sizes="{{ logo_sizes }}" alt="" width="2137" height="736" decoding="async"></span></span>
+<span class="brand-name" aria-hidden="true"><img src="{{ logo_src }}" srcset="{{ logo_srcset }}" sizes="{{ logo_sizes }}" alt="" width="2137" height="736" decoding="async"></span>

@@ -1,6 +1,5 @@
 {% extends "home.html" %}
 {% block title %}{{ page.title }} — {{ config.site_name }}{% endblock %}
-{% block page_styles %}<link rel="stylesheet" href="{{ 'stylesheets/post.css' | url }}">{% endblock %}
 {% block main_content %}
 {% set author = page.meta.author_name | default('Mark Deniel', true) %}
 {% set role = page.meta.author_role | default('Virtus Optio', true) %}
