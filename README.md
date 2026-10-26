@@ -24,6 +24,8 @@ Open [the local preview](http://127.0.0.1:8000/). The preview includes draft blo
 
 The generated website is written to `site/`, which is excluded from Git. Cloudflare Pages runs the production build and hosts the result whenever `main` changes.
 
+The canonical production URL is [virtusoptio.com](https://virtusoptio.com/), configured in `mkdocs.yml`. The Cloudflare Pages fallback is [virtusoptio-website.pages.dev](https://virtusoptio-website.pages.dev/).
+
 ## Deploy with Cloudflare Pages
 
 1. Create or sign in to a [Cloudflare account](https://dash.cloudflare.com/sign-up).
@@ -40,7 +42,7 @@ The generated website is written to `site/`, which is excluded from Git. Cloudfl
    | Environment variable | `PYTHON_VERSION=3.11` |
 
 4. Save and deploy. Cloudflare provides an HTTPS address ending in `.pages.dev` and rebuilds the site when `main` changes.
-5. Set `site_url` in `mkdocs.yml` to the assigned public URL, including `https://` and a trailing slash, then push the update. Use the final custom domain here once one is connected.
+5. Connect `virtusoptio.com` and `www.virtusoptio.com` under **Custom domains**. Keep `site_url: https://virtusoptio.com/` in `mkdocs.yml` so canonical links and the sitemap use the main domain.
 
 To use your own domain, add it under the Pages project's **Custom domains** tab and follow Cloudflare's DNS instructions. See [Git integration](https://developers.cloudflare.com/pages/get-started/git-integration/) and [custom domains](https://developers.cloudflare.com/pages/configuration/custom-domains/).
 

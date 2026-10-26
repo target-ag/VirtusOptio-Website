@@ -44,16 +44,18 @@ Social-card generation is disabled so the site does not require native imaging l
 
 The website's GitHub destination is `target-ag/VirtusOptio-Website`. Cloudflare Pages runs the production build and hosts the result whenever `main` changes.
 
+The canonical production URL is `https://virtusoptio.com/`. The existing Pages deployment remains available at `https://virtusoptio-website.pages.dev/` as a fallback.
+
 1. Create or sign in to a Cloudflare account. In Workers & Pages, create a Pages project and connect GitHub.
 2. Grant access to `target-ag/VirtusOptio-Website`, then select that repository and production branch `main`.
 3. Choose framework preset `None`, leave the root directory blank, set the build command to `pip install -r requirements.txt && mkdocs build --strict`, and set the output directory to `site`.
 4. Set the environment variable `PYTHON_VERSION` to `3.11`, matching the project's `.python-version`, and deploy.
-5. Cloudflare assigns an HTTPS `.pages.dev` address. Add it as `site_url` in `mkdocs.yml`, including `https://` and a trailing slash, then push the update. Future pushes to `main` trigger new production deployments.
-6. For a custom domain, open the Pages project's Custom domains tab and follow Cloudflare's DNS instructions. Update `site_url` to the custom domain after it is connected.
+5. Cloudflare assigns an HTTPS `.pages.dev` address. Future pushes to `main` trigger new production deployments.
+6. Open the Pages project's Custom domains tab to connect `virtusoptio.com` and `www.virtusoptio.com`, following Cloudflare's DNS instructions. Keep `site_url: https://virtusoptio.com/` in `mkdocs.yml` so canonical links and the sitemap use the main domain.
 
 See Cloudflare's [Git integration instructions](https://developers.cloudflare.com/pages/get-started/git-integration/), [build image settings](https://developers.cloudflare.com/pages/configuration/build-image/), and [custom domain guide](https://developers.cloudflare.com/pages/configuration/custom-domains/). An apex domain requires a Cloudflare zone and its nameservers; a subdomain can use the CNAME record specified by Cloudflare.
 
-The homepage uses the supplied portrait and “Find me on LinkedIn” links. Draft articles remain excluded from production, and the public blog can retain its Coming soon state until approved articles are ready. A Cloudflare account and initial deployment still need to be configured; no public site or custom domain is claimed by these setup instructions.
+The homepage uses the supplied portrait and “Find me on LinkedIn” links. Draft articles remain excluded from production, and the public blog can retain its Coming soon state until approved articles are ready. The Cloudflare account and initial Pages deployment are configured; custom-domain availability depends on DNS activation and Cloudflare's domain verification.
 
 ## Business blog layout
 
