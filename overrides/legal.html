@@ -1,0 +1,17 @@
+{% extends "home.html" %}
+{% block title %}{{ page.title | e }} — {{ config.site_name | e }}{% endblock %}
+{% block extra_scripts %}
+  {% if page.meta.cookie_settings %}<script src="{{ 'javascripts/cookie-settings.js' | url }}" defer></script>{% endif %}
+{% endblock %}
+{% block main_content %}
+<article class="legal-page">
+  <header class="legal-header">
+    <p class="legal-eyebrow">Information</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.meta.description %}<p class="legal-description">{{ page.meta.description }}</p>{% endif %}
+    <p class="legal-updated">Last updated <time datetime="2026-10-26">26 October 2026</time></p>
+  </header>
+  <div class="legal-prose">{{ page.content }}</div>
+  {% if page.meta.cookie_settings %}{% include "partials/cookie-settings.html" %}{% endif %}
+</article>
+{% endblock %}

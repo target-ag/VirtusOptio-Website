@@ -13,6 +13,7 @@
   <link rel="preload" href="{{ 'assets/fonts/source-sans-3-latin-v20.woff2' | url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ config.extra.site_css | url }}">
   <script src="{{ 'javascripts/theme.js' | url }}" defer></script>
+  {% block extra_scripts %}{% endblock %}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -48,6 +49,6 @@
     </section>
   {% endblock %}
   </main>
-  <footer><span>© 2026 Virtus Optio</span><span>KVK-nummer: 95111492</span><span>Better conversations. Stronger relationships.</span></footer>
+  {% include "partials/site-footer.html" %}
 </body>
 </html>

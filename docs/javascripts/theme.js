@@ -23,6 +23,7 @@
         // The switch still works when the browser blocks persistent storage.
       }
     }
+    window.dispatchEvent(new CustomEvent("virtus-optio-theme-changed"));
   }
 
   setTheme(root.dataset.theme);
@@ -37,4 +38,6 @@
       setTheme(event.newValue);
     }
   });
+
+  window.addEventListener("virtus-optio-theme-reset", () => setTheme("light"));
 })();
