@@ -1,0 +1,65 @@
+.email-contact-dialog {
+  box-sizing: border-box;
+  width: min(480px, calc(100% - 32px));
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 28px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: 0 24px 80px #0004;
+  font: inherit;
+}
+.email-contact-dialog:not([open]) { display: none; }
+.email-contact-dialog::backdrop { background: #080e1cb3; }
+.email-contact-dialog h2 { margin: 20px 0 12px; color: var(--ink); font-size: 30px; line-height: 1.2; }
+.email-contact-dialog p { margin: 0 0 16px; color: var(--muted); line-height: 1.6; }
+.email-contact-dialog .email-contact-address { color: var(--ink); font-size: 20px; font-weight: 600; overflow-wrap: anywhere; }
+.email-contact-dialog button,
+.email-contact-dialog input { font: inherit; }
+.email-contact-close {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  min-height: 44px;
+  padding: 4px 8px;
+  border: 0;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+}
+.email-contact-close span { font-size: 26px; line-height: 1; }
+.email-contact-actions { display: grid; gap: 12px; margin-top: 24px; }
+.email-contact-actions a,
+.email-contact-actions button {
+  display: block;
+  min-height: 44px;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  color: var(--ink);
+  background: transparent;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.email-contact-actions a:hover,
+.email-contact-actions button:hover { border-color: var(--accent); }
+.email-contact-actions .email-contact-primary { border-color: var(--button-fill); color: #fff; background: var(--button-fill); }
+.email-contact-actions .email-contact-primary:hover { background: var(--button-hover); }
+.email-contact-dialog a:focus-visible,
+.email-contact-dialog button:focus-visible,
+.email-contact-dialog input:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.email-contact-dialog .email-contact-status { min-height: 1.6em; margin: 16px 0 0; font-size: 15px; }
+.email-contact-copy-fallback { margin-top: 12px; }
+.email-contact-copy-fallback label { display: block; margin-bottom: 8px; }
+.email-contact-copy-fallback input { box-sizing: border-box; width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: var(--paper); }
+@media (max-width: 440px) {
+  .email-contact-dialog { padding: 20px; }
+}

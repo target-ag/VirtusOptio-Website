@@ -1,7 +1,8 @@
-<section class="cookie-settings" aria-labelledby="browser-preferences-heading">
-  <h2 id="browser-preferences-heading">Your browser preferences</h2>
-  <div class="cookie-setting-row"><span>Saved theme</span><output id="saved-theme-status">Enable JavaScript to view this preference</output></div>
+{% set settings_id = settings_id | default('page-cookies', true) %}
+<section class="cookie-settings" data-cookie-settings aria-labelledby="{{ settings_id }}-heading">
+  <h2 id="{{ settings_id }}-heading">Your browser preferences</h2>
+  <div class="cookie-setting-row"><span>Saved theme</span><output data-saved-theme>Enable JavaScript to view this preference</output></div>
   <div class="cookie-settings-actions"><button class="call-button" type="button" data-clear-theme hidden>Clear saved theme</button></div>
-  <p class="cookie-settings-status" id="cookie-settings-feedback" role="status" aria-live="polite"></p>
+  <p class="cookie-settings-status" data-cookie-feedback role="status" aria-live="polite"></p>
   <noscript><p>JavaScript is off. To remove the saved theme, clear this website's site data in your browser settings.</p></noscript>
 </section>

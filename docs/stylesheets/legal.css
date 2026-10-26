@@ -138,6 +138,48 @@
 .cookie-settings button:focus-visible,
 .cookie-settings select:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .cookie-settings-status { min-height: 1.5em; margin: 16px 0 0; color: var(--muted); }
+.cookie-dialog-open, .email-dialog-open { overflow: hidden; }
+.cookie-dialog:not([open]) { display: none; }
+.cookie-dialog {
+  width: min(540px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 24px 80px #0004;
+  overflow-y: auto;
+}
+.cookie-dialog::backdrop { background: #11182799; }
+.cookie-dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.cookie-dialog-heading h2 { font-size: 29px; }
+.cookie-dialog > p { color: var(--muted); line-height: 1.65; margin: 18px 0 0; }
+.cookie-dialog button { font: inherit; cursor: pointer; }
+.cookie-dialog-close {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font-size: 28px !important;
+  line-height: 1;
+}
+.cookie-dialog .cookie-settings { margin-top: 22px; padding: 18px; }
+.cookie-dialog .cookie-settings h2 { font-size: 21px; margin-bottom: 0; }
+.cookie-dialog .cookie-setting-row { padding: 14px 0; }
+.cookie-dialog .cookie-settings-actions { margin-top: 18px; }
+.cookie-dialog button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.cookie-dialog-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; margin-top: 22px; }
+.cookie-dialog-bottom a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.cookie-dialog-bottom button { border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 999px; min-height: 44px; padding: 8px 20px; }
+@media (max-width: 440px) {
+  .cookie-dialog { padding: 20px; }
+  .cookie-dialog-heading h2 { font-size: 25px; }
+  .cookie-dialog .cookie-settings { padding: 16px; }
+}
 @media (max-width: 767px) {
   .footer-content { grid-template-columns: 1fr; gap: 28px; }
   .legal-page { margin-block: 54px 64px; }

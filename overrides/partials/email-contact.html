@@ -1,0 +1,16 @@
+<dialog class="email-contact-dialog" id="email-contact-dialog" aria-labelledby="email-contact-title" aria-describedby="email-contact-description">
+  <button class="email-contact-close" type="button" data-email-close aria-label="Close email options">Close <span aria-hidden="true">×</span></button>
+  <h2 id="email-contact-title" tabindex="-1">Send an email</h2>
+  <p id="email-contact-description">Choose how you would like to contact me.</p>
+  <p class="email-contact-address">virtusoptio@gmail.com</p>
+  <div class="email-contact-actions">
+    <a class="email-contact-primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=virtusoptio%40gmail.com" target="_blank" rel="noopener noreferrer">Open Gmail <span aria-hidden="true">↗</span></a>
+    <a href="mailto:virtusoptio@gmail.com">Open email app</a>
+    <button type="button" data-copy-email>Copy email</button>
+  </div>
+  <p class="email-contact-status" role="status" aria-live="polite" data-email-feedback></p>
+  <div class="email-contact-copy-fallback" data-email-copy-fallback hidden>
+    <label for="email-contact-copy-address">Select and copy this email address:</label>
+    <input id="email-contact-copy-address" type="text" value="virtusoptio@gmail.com" readonly>
+  </div>
+</dialog>

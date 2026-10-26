@@ -1,0 +1,12 @@
+<dialog class="cookie-dialog" id="cookie-dialog" aria-labelledby="cookie-dialog-title" aria-describedby="cookie-dialog-description">
+  <div class="cookie-dialog-heading">
+    <h2 id="cookie-dialog-title">Cookie Settings</h2>
+    <button type="button" class="cookie-dialog-close" data-cookie-close aria-label="Close cookie settings" autofocus>×</button>
+  </div>
+  <p id="cookie-dialog-description">This site uses functional storage to remember your chosen theme. No optional advertising or analytics cookies are enabled.</p>
+  {% with settings_id='dialog-cookies' %}{% include "partials/cookie-settings.html" %}{% endwith %}
+  <div class="cookie-dialog-bottom">
+    <a href="{{ 'cookies/' | url }}">Read the Cookie Policy</a>
+    <button type="button" data-cookie-close>Done</button>
+  </div>
+</dialog>
