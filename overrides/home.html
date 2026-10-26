@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('virtus-optio-theme')==='dark'?'dark':'light'}catch(e){document.documentElement.dataset.theme='light'}</script>
+  <meta name="description" content="{{ page.meta.description | default(config.site_description, true) | e }}">
+  <title>{% block title %}{{ config.site_name }} — Ethical Selling &amp; Sales Systems{% endblock %}</title>
+  {% if page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ 'stylesheets/home.css' | url }}">
+  {% block page_styles %}{% endblock %}
+  <link rel="stylesheet" href="{{ 'stylesheets/theme.css' | url }}">
+  <link rel="stylesheet" href="{{ 'stylesheets/navigation.css' | url }}">
+  <script src="{{ 'javascripts/theme.js' | url }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% block site_header %}
+  {% include "partials/site-header.html" %}
+  {% endblock %}
+  <main id="main">
+  {% block main_content %}
+    <section class="hero" aria-labelledby="headline">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true"></span>Ethical selling · Practical sales systems</p>
+        <h1 id="headline">Win More Customers.<br>Build Stronger Client Relationships.</h1>
+        <p class="intro">I help businesses turn more sales conversations into customers through ethical selling and practical sales systems, so business owners can spend more time working on their business, not in it.</p>
+        <a class="call-button" href="https://www.linkedin.com/in/mark-d-819a57224/" target="_blank" rel="noopener noreferrer">Find me on LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="portrait-frame"><img class="portrait-photo" src="{{ 'assets/mark-deniel-office-cobalt-mug.svg' | url }}" alt="Mark Deniel at his desk in a bright office" width="1254" height="1254" fetchpriority="high"></div>
+    </section>
+    <section class="faq" aria-labelledby="faq-heading">
+      <p class="eyebrow">A few things you might be wondering</p>
+      <h2 id="faq-heading">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details><summary>When can I bring you in?</summary><p>If sales conversations aren’t turning into customers, follow-ups feel inconsistent, or selling takes too much of your time, those are useful challenges to bring to an introductory conversation.</p></details>
+        <details><summary>How does a collaboration start?</summary><p>Start by sharing your sales challenges, what you’ve tried, and what you want to improve. An introductory conversation helps clarify where support could be useful and what a sensible next step might look like.</p></details>
+        <details><summary>What does ethical selling mean?</summary><p>Understanding what a customer needs, being honest about what you can deliver, and helping them make an informed decision. The aim is to build trust and find a good fit, without pressure or manipulation.</p></details>
+        <details><summary>What is the investment?</summary><p>The right scope depends on your goals and the support you need. Bring those to an introductory conversation so we can discuss what an appropriate engagement could look like.</p></details>
+      </div>
+    </section>
+    <section class="closing-cta" aria-labelledby="cta-heading">
+      <p class="eyebrow">Take the next step</p>
+      <h2 id="cta-heading">Ready for better sales conversations?</h2>
+      <p>Tell me about your challenge. Let’s explore how I can help.</p>
+      <div class="cta-actions"><a class="call-button" href="https://www.linkedin.com/in/mark-d-819a57224/" target="_blank" rel="noopener noreferrer">Find me on LinkedIn <span aria-hidden="true">↗</span></a><a class="secondary-button" href="{{ 'blog/' | url }}">Explore the blog</a></div>
+    </section>
+  {% endblock %}
+  </main>
+  <footer><span>© 2026 Virtus Optio</span><span>Better conversations. Stronger relationships.</span></footer>
+</body>
+</html>

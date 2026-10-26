@@ -1,0 +1,107 @@
+/* Shared light/dark palette: neutral surfaces and distinct cobalt accents. */
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+  min-width: 0;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  background: rgba(255, 255, 255, .4);
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .15s ease, background-color .15s ease, border-color .15s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(45, 87, 199, .07);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.theme-toggle svg { width: 17px; height: 17px; }
+.theme-toggle .theme-icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .theme-icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .theme-icon-moon { display: none; }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #181818;
+  --ink: #f3f0ea;
+  --muted: #b9b7b2;
+  --accent: #739BFF;
+  --accent-strong: #4C7DFF;
+  --button-fill: #345FCB;
+  --button-hover: #406BD4;
+  --line: #3b3b3b;
+}
+
+[data-theme="dark"] .site-header {
+  background: rgba(36, 36, 36, .96);
+  box-shadow: 0 1px 2px #00000020, 0 10px 28px -8px #00000050, inset 0 1px 0 #ffffff06;
+}
+
+[data-theme="dark"] .brand-name img { filter: grayscale(1) brightness(0) invert(.94); }
+/* Lighten only the neutral lettering; the shared cobalt tip stays the same. */
+[data-theme="dark"] .brand-symbol-base img { filter: grayscale(1) brightness(0) invert(.94); }
+[data-theme="dark"] .theme-toggle { background: #ffffff05; }
+[data-theme="dark"] .theme-toggle:hover { background: #4C7DFF18; }
+[data-theme="dark"] .skip-link { color: var(--ink); background: #282828; }
+[data-theme="dark"] .portrait-placeholder,
+[data-theme="dark"] .blog-empty,
+[data-theme="dark"] .post-prose pre { background: #232323; border-color: var(--line); }
+[data-theme="dark"] .portrait-initial { color: #777777; }
+
+[data-theme="dark"] .closing-cta {
+  border: 1px solid #35455E;
+  background: radial-gradient(ellipse at top right, #2D57C72B, transparent 65%), radial-gradient(#ffffff10 1px, transparent 1px), #1B2533;
+  background-size: auto, 24px 24px, auto;
+  box-shadow: 0 15px 28px #00000012;
+}
+
+[data-theme="dark"] .post-draft {
+  color: #CBDAFF;
+  background: #13264C;
+  border-color: var(--accent-strong);
+}
+
+[data-theme="dark"] .post-avatar { color: #CBDAFF; background: #173064; }
+[data-theme="dark"] .post-prose .post-inline-cta { background: #172544; border-color: var(--accent-strong); }
+[data-theme="dark"] .post-prose .highlight { color: var(--ink); }
+[data-theme="dark"] ::selection { color: #fff; background: #2D57C7; }
+
+@media (max-width: 767px) {
+  .header-actions { gap: 14px; }
+}
+
+@media (max-width: 440px) {
+  .header-actions { gap: 10px; }
+  .theme-toggle { width: 32px; height: 32px; }
+  .site-header .wordmark { --brand-scale: .6; }
+}
+
+@media (max-width: 360px) {
+  .site-header .wordmark { --brand-scale: .5; }
+  .post-back { font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle { transition: none; }
+}

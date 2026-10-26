@@ -1,0 +1,70 @@
+{% extends "home.html" %}
+{% block title %}Business Growth Strategies — {{ config.site_name }}{% endblock %}
+{% block page_styles %}<link rel="stylesheet" href="{{ 'stylesheets/blog.css' | url }}">{% endblock %}
+{% block main_content %}
+<div class="journal">
+  <header class="journal-intro">
+    <p class="journal-label">Blog</p>
+    <h1>Business Growth Strategies</h1>
+    <p class="journal-description">Practical strategies</p>
+  </header>
+
+  <nav class="journal-categories" aria-label="Blog category">
+    <a href="#business" aria-current="page">Business</a>
+  </nav>
+
+  <div id="business" class="journal-content">
+    <section class="journal-start" aria-labelledby="start-heading">
+      <h2 id="start-heading" class="journal-label">Start here</h2>
+      {% if posts %}
+        {% set selected = posts | selectattr('meta.start_here') | list %}
+        {% for post in (selected if selected else posts)[:2] %}
+        <a class="journal-start-row" href="{{ post.url | url }}">
+          <span>{{ post.title }}</span>
+          <time datetime="{{ post.config.date.created.isoformat() }}">{{ post.config.date.created.strftime('%b %-d, %Y') }}</time>
+        </a>
+        {% endfor %}
+      {% else %}
+        <div class="journal-start-row"><span>A practical guide to ethical selling</span><span class="journal-status">Coming soon</span></div>
+        <div class="journal-start-row"><span>Build a sales process you can repeat</span><span class="journal-status">Coming soon</span></div>
+      {% endif %}
+    </section>
+
+    {% if posts %}
+      {% set featured = posts[0] %}
+      <article class="journal-featured">
+        <div class="journal-meta"><span>{% if featured.config.draft %}Draft preview{% else %}Latest{% endif %}</span><span>Business</span><time datetime="{{ featured.config.date.created.isoformat() }}">{{ featured.config.date.created.strftime('%b %-d, %Y') }}</time></div>
+        <h2><a href="{{ featured.url | url }}">{{ featured.title }}</a></h2>
+        {% if featured.meta.description %}<p>{{ featured.meta.description }}</p>{% endif %}
+      </article>
+      <div class="journal-feed">
+        {% for post in posts[1:] %}
+        <article class="journal-entry">
+          <div class="journal-entry-meta"><time datetime="{{ post.config.date.created.isoformat() }}">{{ post.config.date.created.strftime('%b %-d, %Y') }}</time><span>Business</span></div>
+          <div><h2><a href="{{ post.url | url }}">{{ post.title }}</a></h2>{% if post.meta.description %}<p>{{ post.meta.description }}</p>{% endif %}</div>
+        </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <article class="journal-featured">
+        <div class="journal-meta"><span>Coming soon</span><span>Business</span></div>
+        <h2>Better sales conversations start with better questions</h2>
+        <p>A look at how listening, understanding the real problem, and asking thoughtful questions can create a stronger foundation for a sale.</p>
+      </article>
+      <div class="journal-feed">
+        <article class="journal-entry">
+          <div class="journal-entry-meta"><span>Coming soon</span><span>Business</span></div>
+          <div><h2>Follow up without putting people under pressure</h2><p>Practical ways to keep a conversation moving while respecting your customer’s time and decisions.</p></div>
+        </article>
+        <article class="journal-entry">
+          <div class="journal-entry-meta"><span>Coming soon</span><span>Business</span></div>
+          <div><h2>Turn new customers into lasting relationships</h2><p>Simple habits for staying close to your customers and finding opportunities to support them as their business grows.</p></div>
+        </article>
+      </div>
+    {% endif %}
+    {% if pagination %}
+    <nav class="journal-pagination" aria-label="Article pages">{{ pagination({"link_attr": {"class": "journal-page-link"}, "curpage_attr": {"class": "journal-page-current"}}) }}</nav>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -94,3 +94,12 @@ target/
 
 # exclude data from source control by default
 # /data/
+# Generated website
+site/
+
+# Local design previews and working reports
+/*-preview.png
+/loading-speed-results.json
+/logo-design-prompt.txt
+/logo-recolor-prompt.txt
+/mug-color-edit-prompt.txt

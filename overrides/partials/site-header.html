@@ -1,0 +1,14 @@
+<header class="site-header">
+  <a class="wordmark" href="{{ '.' | url }}" aria-label="Virtus Optio home">{% include "partials/brand-logo.html" %}</a>
+  <div class="header-actions">
+    <nav class="site-navigation" aria-label="Main navigation">
+      {% if page.meta.template == 'blog-post.html' %}
+      <a class="post-back" href="{{ 'blog/' | url }}">← Back to blog</a>
+      {% else %}
+      <a href="{{ 'blog/' | url }}">Blog</a>
+      {% endif %}
+    </nav>
+    <a class="site-contact" href="https://www.linkedin.com/in/mark-d-819a57224/" target="_blank" rel="noopener noreferrer">Let’s talk <span aria-hidden="true">↗</span></a>
+    {% include "partials/theme-toggle.html" %}
+  </div>
+</header>

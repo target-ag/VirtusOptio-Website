@@ -1,0 +1,73 @@
+:root{color-scheme:light;--paper:#f9f9f9;--ink:#171b24;--muted:#606773;--accent:#2D57C7;--line:#e1e5ec;font-family:"Source Sans 3",Arial,Helvetica,sans-serif;color:var(--ink);background:var(--paper)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:30px}body{margin:0}a{color:inherit;text-decoration:none}a:focus-visible{outline:3px solid var(--accent);outline-offset:6px}.skip-link{position:absolute;top:-100px;left:20px;padding:12px;background:white;z-index:10}.skip-link:focus{top:12px}
+.site-header,main,footer{width:min(1280px,calc(100% - 96px));margin-inline:auto}.site-header{margin-top:18px;min-height:70px;padding:16px 30px;border:1px solid var(--line);border-radius:50px;background:#fafafa;box-shadow:0 3px 5px #26201607,0 14px 28px #26201608;display:flex;align-items:center;justify-content:space-between;gap:24px}.wordmark{font-family:"Source Serif 4",Georgia,serif;font-size:29px;letter-spacing:-1px}.wordmark span,.portrait-initial span{color:var(--accent)}nav{display:flex;align-items:center;gap:28px;font-size:15px;color:var(--muted)}nav a:hover{color:var(--accent)}
+.hero{display:grid;grid-template-columns:1.45fr 1fr;gap:70px;align-items:center;padding:130px 0 140px;min-height:780px}.eyebrow{color:var(--muted);font-size:15px;line-height:1.6;letter-spacing:.1px;margin:0 0 28px;display:flex;align-items:center;gap:10px}.eyebrow>span{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}h1{font-family:"Source Sans 3",Arial,Helvetica,sans-serif;font-weight:700;font-size:clamp(44px,4.5vw,68px);line-height:1.15;letter-spacing:-1.3px;margin:0 0 32px}.intro{color:var(--muted);font-size:19px;line-height:1.8;max-width:650px;margin:0 0 38px}.call-button{display:inline-flex;gap:18px;align-items:center;background:var(--accent);color:white;border-radius:40px;padding:12px 25px;font-size:17px;font-weight:600;transition:background .2s,transform .2s}.call-button:hover{background:#2348AE;transform:translateY(-2px)}.portrait-placeholder{aspect-ratio:4/5;border:1px solid var(--line);border-radius:22px;background:#fafafa;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}.portrait-initial{font:150px Georgia,serif;color:#d0c8ba;letter-spacing:-10px}.portrait-placeholder p{font-size:13px;color:var(--muted);margin:25px 0 0}.contact{border-top:1px solid var(--line);padding:52px 0 68px;display:grid;grid-template-columns:1.45fr 1fr;gap:70px;align-items:center}.contact .eyebrow{margin-bottom:14px}h2{font:700 30px/1.25 "Source Sans 3",Arial,Helvetica,sans-serif;max-width:450px;margin:0}.contact>p{color:var(--muted);line-height:1.7;font-size:16px}footer{border-top:1px solid var(--line);padding:28px 0 34px;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:13px}
+@media(min-width:1600px){.hero{padding-block:145px 170px}}
+@media(max-width:900px){.site-header,main,footer{width:calc(100% - 48px)}.hero{gap:32px;min-height:auto;padding:90px 0}.intro{font-size:17px}h1{font-size:46px}.contact{gap:32px}.portrait-initial{font-size:110px}}
+@media(max-width:640px){.site-header,main,footer{width:calc(100% - 36px)}.site-header{padding:15px 20px;min-height:62px;margin-top:12px}.wordmark{font-size:26px}nav{gap:15px;font-size:12px}nav a:last-child{display:none}.hero{grid-template-columns:1fr;padding:64px 0 60px;gap:40px}.eyebrow{font-size:13px;margin-bottom:22px}h1{font-size:44px;letter-spacing:-1.5px;margin-bottom:24px}.intro{font-size:17px;line-height:1.75;margin-bottom:28px}.portrait-placeholder{width:100%;max-width:420px;justify-self:center;aspect-ratio:4/4.3}.contact{grid-template-columns:1fr;gap:14px;padding:35px 0 40px}h2{font-size:28px}footer{flex-direction:column;gap:10px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.call-button{transition:none}}
+
+/* Shared editorial styling and expandable FAQ. */
+.faq{padding:65px 0 100px;border-top:1px solid var(--line)}.faq>.eyebrow{justify-content:center;margin-bottom:14px}.faq>h2{text-align:center;font-size:clamp(32px,3.5vw,46px);max-width:none;margin:0 0 50px}.faq-list{max-width:890px;margin:auto}.faq details{border-bottom:1px solid var(--line)}.faq summary{padding:28px 32px 28px 0;list-style:none;cursor:pointer;font-size:21px;position:relative}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:'+';position:absolute;right:3px;top:24px;font-size:26px;color:var(--accent)}.faq details[open] summary:after{content:'−'}.faq summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}.faq details p{font-size:18px;line-height:1.75;color:var(--muted);max-width:760px;margin:0 30px 28px 0}
+.closing-cta{margin:0 0 85px;padding:75px 32px 54px;text-align:center;border-radius:24px;color:#f8fafc;background:radial-gradient(ellipse at top right,#ffffff08,transparent 65%),radial-gradient(#ffffff13 1px,transparent 1px),#202020;background-size:auto,24px 24px,auto;box-shadow:0 15px 28px #2222220c}.closing-cta>.eyebrow{justify-content:center;text-transform:uppercase;letter-spacing:2px;font-size:13px;color:#c8d1df;margin-bottom:20px}.closing-cta h2{max-width:none;font-size:clamp(32px,3.7vw,48px)}.closing-cta>p:not(.eyebrow){color:#c8d1df;font-size:20px;line-height:1.7;margin:22px auto 30px}.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}.secondary-button{border:1px solid #73809a;color:#f8fafc;border-radius:40px;padding:12px 25px;font-size:17px;transition:background .2s}.secondary-button:hover{background:#ffffff15}.closing-cta>.booking-note{font-size:14px!important;margin:25px 0 0!important;color:#b6c1d2!important}
+.blog-heading{padding:115px 0 65px;max-width:800px}.blog-heading h1{font-size:clamp(42px,5vw,66px)}.blog-heading .intro{max-width:620px}.article-list{padding-bottom:95px;min-height:350px}.article-list-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:22px}.article-list-heading>span{font-size:14px;color:var(--muted)}.blog-empty{text-align:center;padding:65px 24px;background:#fafafa;border-radius:18px;margin-top:30px}.empty-mark{font-size:40px;color:var(--accent)}.blog-empty h2{max-width:none;font-size:34px;margin:20px 0 15px}.blog-empty p{max-width:500px;margin:0 auto 24px;color:var(--muted);font-size:19px;line-height:1.7}.text-link{color:#2D57C7;font-weight:600}.text-link:hover{text-decoration:underline}.article-row{display:grid;grid-template-columns:150px 1fr;gap:30px;padding:36px 0;border-bottom:1px solid var(--line)}.article-row time{color:var(--muted)}.article-row h2{max-width:none}.article-row p,.reading-page p{font-size:19px;line-height:1.8;color:var(--muted)}.reading-page{max-width:780px;margin:90px auto}.reading-page>h1{margin-top:35px}.reading-page img{max-width:100%}.reading-page pre{overflow:auto}.blog-pagination{padding-top:30px}
+@media(max-width:640px){.faq{padding:45px 0 60px}.faq>h2{margin-bottom:24px}.faq summary{font-size:19px;padding-block:23px}.faq details p{font-size:17px}.closing-cta{padding:48px 22px 35px;margin-bottom:50px}.closing-cta>p:not(.eyebrow){font-size:18px}.blog-heading{padding:65px 0 30px}.blog-empty{padding:40px 20px}.blog-empty h2{font-size:29px}.article-row{grid-template-columns:1fr;gap:12px}.reading-page{margin:55px auto}.reading-page h1{font-size:40px}}
+
+/* Reference measurements: iuliusuriesu.com, 1280px viewport. */
+:root{--paper:#f9f9f9;--ink:#171b24;--muted:#606773;--accent:#2D57C7;--line:#e1e5ec;font-size:17px;line-height:1.5;background:var(--paper)}
+body{background:var(--paper)}
+.site-header,main,footer{width:calc(100% - 51px);max-width:1037px}
+.site-header{margin-top:17px;min-height:57.25px;padding:8.5px 25.5px;border-radius:9999px;background:rgba(255,255,255,.96);box-shadow:0 1px 2px rgba(22,21,26,.06),0 10px 28px -8px rgba(22,21,26,.14),inset 0 1px 0 rgba(255,255,255,.7);backdrop-filter:blur(12px)}
+.wordmark{display:inline-flex;align-items:center;gap:12px;font-family:'Outfit',sans-serif;letter-spacing:-.5px;font-weight:700;font-size:25.5px;line-height:38.25px;white-space:nowrap}
+.wordmark .logo-mark{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9px;background:#171716;color:#faf9f7;font-family:'Manrope',sans-serif;font-size:23px;font-weight:800;line-height:1;letter-spacing:0}
+.wordmark .logo-name{color:#080808}
+nav{font-size:16.15px;line-height:24.225px;gap:29.75px}
+.hero{grid-template-columns:1.45fr 1fr;gap:51px;padding:119px 0;min-height:0}
+.hero .eyebrow{font-size:14.875px;line-height:21.25px;letter-spacing:normal;gap:8.5px;margin:0 0 21.25px}
+.hero .eyebrow>span{width:6.375px;height:6.375px}
+.hero h1{font-size:38.25px;font-weight:700;line-height:1.15;letter-spacing:-.025em;margin:0}
+.hero .intro{font-size:19.125px;line-height:1.625;max-width:612px;margin:25.5px 0 38.25px}
+.call-button{font-family:'Source Sans 3',sans-serif;font-size:17px;font-weight:600;line-height:25.5px;gap:6.375px;padding:10.625px 21.25px;border-radius:9999px;background:#2D57C7;color:#faf9f7;box-shadow:none}
+.call-button:hover{background:#2348AE;transform:none}
+.call-button>span{font-size:17px;line-height:1}
+.portrait-placeholder{max-width:408px;width:100%;justify-self:center;aspect-ratio:4/5;background:#fafafa;border:1px solid var(--line);border-radius:17px}
+@media(min-width:1280px){.hero h1{font-size:47.6px}}
+@media(max-width:767px){.site-header,main,footer{width:calc(100% - 51px)}.site-header{padding:8.5px 17px}.hero{grid-template-columns:1fr;gap:51px;padding:85px 0}.hero h1{font-size:38.25px}.hero .intro{font-size:19.125px}.wordmark{font-size:22px;gap:9px}nav{font-size:14px;gap:17px}nav a:last-child{display:none}.portrait-placeholder{max-width:408px;aspect-ratio:4/5}}
+@media(max-width:440px){.site-header{padding-inline:12px}.wordmark{font-size:20px}.wordmark .logo-mark{width:30px;height:30px;font-size:20px;border-radius:8px}nav{gap:12px;font-size:13px}nav a:first-child{display:none}}
+
+/* Lighter brand lettering. */
+.wordmark,.wordmark .logo-name{font-weight:400}
+.wordmark .logo-mark{font-weight:500}
+
+/* Separate display windows preserve the artwork while reducing only the VO mark. */
+.wordmark{--brand-scale:1;position:relative;display:flex;align-items:center;flex:0 0 auto;gap:calc(10.16px * var(--brand-scale));width:auto;height:calc(40.09px * var(--brand-scale));overflow:visible;line-height:normal}
+.wordmark .brand-symbol,.wordmark .brand-name{position:relative;display:block;flex:0 0 auto;overflow:hidden}
+.brand-symbol{width:calc(58.71px * var(--brand-scale));height:calc(34.08px * var(--brand-scale))}
+.brand-name{width:calc(160.77px * var(--brand-scale));height:calc(29.66px * var(--brand-scale))}
+.wordmark img{position:absolute;display:block;max-width:none;height:auto}
+.brand-symbol img{width:419.0196%;left:-33.3333%;top:-67.5676%}
+.brand-name img{width:180.0337%;left:-63.6057%;top:-117.3516%}
+.site-header nav a{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.portrait-frame{width:100%;max-width:408px;aspect-ratio:4/5;justify-self:center;border:1px solid var(--line);border-radius:17px;overflow:hidden;position:relative}
+.portrait-photo{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+@media(max-width:767px){.wordmark{--brand-scale:.85}.site-header{gap:16px}}
+@media(max-width:440px){.wordmark{--brand-scale:.72}.site-header{gap:12px}.site-header nav{gap:12px;font-size:13px}}
+@media(max-width:360px){.wordmark{--brand-scale:.6}.site-header{gap:8px}.site-header nav{gap:8px;font-size:12px}}
+
+/* Solid cobalt buttons and highlights; logo colors are independent. */
+:root{--accent:#2D57C7;--accent-strong:#2D57C7;--button-fill:#2D57C7;--button-hover:#2348AE}
+.call-button{background:var(--button-fill);color:#fff}
+.call-button:hover{background:var(--button-hover)}
+.eyebrow>span{background:var(--accent)}
+.portrait-initial span,.empty-mark,.faq summary:after{background:none;color:var(--accent)}
+.text-link,nav a:hover{color:var(--accent)}
+.brand-symbol img{filter:none}
+.brand-color-filter{position:absolute;pointer-events:none}
+.brand-symbol-base,.brand-symbol-accent{position:absolute;inset:0}
+.brand-symbol-base{clip-path:polygon(0 0,73.53% 0,68.24% 14.19%,88.63% 26.69%,100% 47.64%,100% 100%,0 100%)}
+.brand-symbol-accent{display:block;clip-path:polygon(73.53% 0,100% 0,100% 47.64%,88.63% 26.69%,68.24% 14.19%)}
+.brand-symbol-accent img{filter:url(#brand-cobalt)}
+
+/* Headings share the body typeface, with stronger hierarchy on every page. */
+h1,h2,h3,h4,h5,h6{overflow-wrap:anywhere}
+h3,h4,h5,h6{font-family:"Source Sans 3",Arial,Helvetica,sans-serif;font-weight:700}

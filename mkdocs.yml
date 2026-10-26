@@ -1,28 +1,27 @@
-site_name: Your Site Name
-site_description: Your site description
-site_url: https://yourdomain.com
+site_name: Virtus Optio
+site_description: Ethical selling and practical sales systems to help businesses win more customers and build stronger client relationships.
+
+watch:
+  - overrides
 
 nav:
   - Home:
     - About: index.md
-  - Case Studies:
-    - Overview: portfolio/index.md
-    - Projects:
-      - portfolio/projects/project-1.md
-      - portfolio/projects/project-2.md
   - Blog:
     - blog/index.md 
 
+exclude_docs: |
+  portfolio/
+
 theme:
   name: material
+  custom_dir: overrides
   features:
     - search.suggest
     - toc.integrate
     - navigation.tabs
     - navigation.expand
     - navigation.sections
-    - navigation.instant
-    - navigation.instant.prefetch
     - content.tooltips
     - content.tabs.link
     - content.code.copy
@@ -49,32 +48,19 @@ theme:
   favicon: assets/favicon.png
 
 extra:
-  generator: true
-  social:
-    - icon: fontawesome/solid/building
-      link: https://company.com
-    - icon: fontawesome/brands/github
-      link: https://github.com/
-    - icon: fontawesome/brands/youtube
-      link: https://youtube.com/
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com
-  analytics:
-    # provider: google
-    # property: G-W9Y130NXVZ
+  generator: false
 
 extra_css:
   - stylesheets/extra.css
   - stylesheets/hero.css
 plugins:
   - search
-  - social:
-      cards_layout_options:
-        background_color: "#111111"
   - blog:
       blog_dir: blog
-      authors_file: "{blog}/.authors.yml"
+      authors: false
       categories: true
+      categories_allowed:
+        - Business
 
 markdown_extensions:
   - attr_list
@@ -95,11 +81,4 @@ markdown_extensions:
   - def_list
   - pymdownx.keys
 
-extra_javascript:
-  - https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js
-
-extra_files:
-  - docs/robots.txt
-
-copyright: |
-  &copy; 2024 <a href="https://www.linkedin.com" target="_blank" rel="noopener">John Doe</a>. All rights reserved.
+copyright: Copyright &copy; 2026 Virtus Optio

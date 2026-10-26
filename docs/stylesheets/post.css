@@ -1,0 +1,78 @@
+/* Focused reading layout based on the reference article, in the site's theme. */
+.post-back { font-size: 15px; color: var(--muted); white-space: nowrap; }
+.post-back:hover { color: var(--accent); }
+.post-page { max-width: 680px; margin: 75px auto 90px; }
+.post-draft { margin: 0 0 30px; border: 1px solid #6E90E9; border-left: 4px solid var(--accent-strong); border-radius: 8px; padding: 10px 14px; color: #2D57C7; background: #EDF2FF; font-size: 14px; line-height: 1.5; }
+.post-intro { padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+.post-meta { display: flex; flex-wrap: wrap; align-items: center; color: var(--muted); font-size: 13px; line-height: 1.5; text-transform: uppercase; letter-spacing: .025em; gap: 8px 0; }
+.post-meta > * + * { border-left: 1px solid var(--line); margin-left: 15px; padding-left: 15px; }
+.post-meta a { color: var(--accent); }
+.post-intro h1 { margin: 20px 0 24px; font-size: 48px; line-height: 1.12; letter-spacing: -.03em; }
+.post-description { color: var(--muted); font-size: 22px; line-height: 1.55; margin: 0; }
+.post-byline { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 9px; margin-top: 30px; font-size: 15px; }
+.post-byline:hover .post-author-name { color: var(--accent); }
+.post-avatar { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 36px; height: 36px; border-radius: 50%; margin-right: 4px; object-fit: cover; background: #E5ECFB; color: #2D57C7; font: 600 22px/1 "Source Sans 3", Arial, sans-serif; }
+.post-author-role { color: var(--muted); }
+.post-series { margin-top: 28px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px 14px; font-size: 14px; }
+.post-series > span { color: var(--muted); text-transform: uppercase; font-size: 12px; letter-spacing: .035em; }
+.post-series a { border-left: 1px solid var(--line); padding-left: 14px; }
+.post-series a:hover { color: var(--accent); }
+.post-series-arrow { display: inline-block; margin-left: 3px; }
+.post-summary { border-left: 4px solid var(--accent-strong); padding-left: 24px; margin: 36px 0; }
+.post-label { color: var(--muted); text-transform: uppercase; font-size: 12px; letter-spacing: .055em; margin: 0 0 12px; }
+.post-summary p:last-child { margin: 0; font-size: 19px; line-height: 1.65; }
+.post-prose { color: var(--ink); font-size: 19px; line-height: 1.75; overflow-wrap: anywhere; }
+.post-prose > :first-child { margin-top: 0; }
+.post-prose p { margin: 0 0 24px; }
+.post-prose h2, .post-faq > h2 { max-width: none; margin: 56px 0 22px; font-size: 32px; line-height: 1.25; letter-spacing: -.02em; scroll-margin-top: 35px; }
+.post-prose h3, .post-faq h3 { font: 700 22px/1.4 "Source Sans 3", sans-serif; margin: 32px 0 14px; }
+.post-prose a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.post-prose .headerlink { opacity: 0; margin-left: 8px; text-decoration: none; }
+.post-prose h2:hover .headerlink, .post-prose h3:hover .headerlink, .post-prose .headerlink:focus { opacity: 1; }
+.post-prose ul, .post-prose ol { padding-left: 25px; margin: 0 0 24px; }
+.post-prose li { padding-left: 5px; margin-bottom: 10px; }
+.post-prose li::marker { color: var(--accent); }
+.post-prose blockquote { border-left: 4px solid var(--accent-strong); color: var(--muted); margin: 32px 0; padding: 4px 0 4px 24px; font-style: italic; }
+.post-prose blockquote p:last-child { margin-bottom: 0; }
+.post-prose img { display: block; max-width: 100%; height: auto; border-radius: 12px; margin: 32px auto; }
+.post-prose pre { max-width: 100%; overflow: auto; padding: 20px; border: 1px solid var(--line); border-radius: 10px; background: #f3f6fa; font-size: 14px; line-height: 1.65; }
+.post-prose code { font-size: .87em; }
+.post-prose table { display: block; overflow-x: auto; border-collapse: collapse; margin: 24px 0; }
+.post-prose th, .post-prose td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.post-prose .post-inline-cta { padding: 26px; margin: 40px 0; border: 1px solid #D5DFF5; border-radius: 14px; background: #F0F4FC; }
+.post-prose .post-inline-cta h3 { margin: 0 0 12px; }
+.post-prose .post-inline-cta p { color: var(--muted); font-size: 18px; margin: 0 0 18px; }
+.post-prose .post-inline-cta .call-button { color: white; text-decoration: none; }
+.post-faq p { font-size: 19px; line-height: 1.75; margin: 0; }
+.post-author-card { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 32px 0; margin-top: 56px; scroll-margin-top: 30px; }
+.post-author-profile { display: flex; align-items: center; gap: 14px; margin: 20px 0; }
+.post-author-profile .post-avatar { width: 56px; height: 56px; font-size: 29px; }
+.post-author-profile h2 { font-size: 27px; line-height: 1.2; margin: 0 0 5px; }
+.post-author-profile p { margin: 0; font-size: 15px; }
+.post-author-card > p:not(.post-label) { font-size: 18px; line-height: 1.7; color: var(--muted); margin: 0 0 18px; }
+.post-author-card .text-link { font-size: 16px; }
+.post-related { margin-top: 44px; }
+.post-related-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; margin-bottom: 20px; }
+.post-related-heading h2 { font-size: 27px; }
+.post-related-heading .text-link { font-size: 15px; white-space: nowrap; }
+.post-related-row { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); font-size: 18px; }
+.post-related-row:hover { color: var(--accent); }
+.post-related-row > span + span { color: var(--muted); font-size: 14px; }
+@media(max-width:767px) {
+  .post-page { margin: 50px auto 60px; }
+  .post-intro h1 { font-size: 39px; }
+  .post-description { font-size: 20px; }
+  .post-prose, .post-summary p:last-child, .post-faq p { font-size: 18px; }
+  .post-prose h2, .post-faq > h2 { margin-top: 44px; font-size: 29px; }
+  .post-prose h3, .post-faq h3 { font-size: 21px; }
+}
+@media(max-width:440px) {
+  .post-site-header .wordmark { --brand-scale: .68; }
+  .post-site-header { gap: 12px; }
+  .post-back { font-size: 13px; }
+  .post-intro h1 { font-size: 35px; }
+  .post-meta { font-size: 11px; }
+  .post-meta > * + * { margin-left: 10px; padding-left: 10px; }
+  .post-byline { font-size: 14px; }
+  .post-summary { padding-left: 18px; }
+}
