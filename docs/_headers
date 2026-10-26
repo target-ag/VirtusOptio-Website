@@ -11,3 +11,7 @@
 # The filename changes whenever any shared style changes.
 /stylesheets/site-*.css
   Cache-Control: public, max-age=31536000, immutable
+
+# New scripts get a new URL, so cached versions cannot break updated controls.
+/javascripts/site-*.js
+  Cache-Control: public, max-age=31536000, immutable

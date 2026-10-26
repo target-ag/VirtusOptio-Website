@@ -12,9 +12,7 @@
   {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url | e }}">{% endif %}
   <link rel="preload" href="{{ 'assets/fonts/source-sans-3-latin-v20.woff2' | url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ config.extra.site_css | url }}">
-  <script src="{{ 'javascripts/theme.js' | url }}" defer></script>
-  <script src="{{ 'javascripts/cookie-settings.js' | url }}" defer></script>
-  <script src="{{ 'javascripts/email-contact.js' | url }}" defer></script>
+  <script src="{{ config.extra.site_js | url }}" defer></script>
   {% block extra_scripts %}{% endblock %}
 </head>
 <body>
