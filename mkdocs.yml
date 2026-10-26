@@ -49,7 +49,7 @@ theme:
     code: Roboto Mono
   icon:
     logo: material/slash-forward-box
-  favicon: assets/favicon.png
+  favicon: assets/brand/favicon-cobalt-32.png
 
 extra:
   generator: false

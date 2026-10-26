@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{{ 'assets/brand/favicon-cobalt-32.png' | url }}" type="image/png" sizes="32x32">
+  <link rel="icon" href="{{ 'assets/brand/favicon-cobalt-64.png' | url }}" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="{{ 'assets/brand/favicon-cobalt-180.png' | url }}" sizes="180x180">
   <script>{{ config.extra.theme_init }}</script>
   <meta name="description" content="{{ (page.meta.description | default(config.site_description, true) if page else config.site_description) | e }}">
   <title>{% block title %}{{ config.site_name }} — Ethical Selling &amp; Sales Systems{% endblock %}</title>
