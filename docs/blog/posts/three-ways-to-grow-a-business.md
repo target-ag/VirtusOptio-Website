@@ -1,6 +1,7 @@
 ---
 title: The Only 3 Ways to Grow a Business (And How to Use Them)
-date: 2026-10-26
+# Timestamp from the original publication commit (9c2f575).
+date: 2026-10-26T21:48:23+01:00
 slug: three-ways-to-grow-a-business
 draft: false
 start_here: true

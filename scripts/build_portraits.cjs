@@ -14,7 +14,7 @@ const path = require("node:path");
 const sharp = require("sharp");
 
 const assets = path.resolve(__dirname, "../docs/assets");
-const widths = [400, 640, 800, 1000];
+const widths = [400, 420, 640, 800, 1000];
 
 async function main() {
   let source = await fs.readFile(path.join(assets, "mark-deniel-office-cobalt-mug.svg"), "utf8");
