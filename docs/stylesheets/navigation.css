@@ -9,7 +9,6 @@ html { scroll-padding-top: 110px; }
 }
 .site-header .header-actions { flex: 1 1 auto; }
 .site-header .header-menu { display: flex; align-items: center; gap: 24px; }
-.site-header .theme-toggle { order: 1; }
 .mobile-menu-toggle { display: none; }
 .mobile-menu-toggle .menu-icon-close { display: none; }
 .site-header .site-navigation {

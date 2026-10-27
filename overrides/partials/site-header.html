@@ -1,11 +1,6 @@
 <header class="site-header">
   <a class="wordmark" href="{{ '.' | url }}" aria-label="Virtus Optio home">{% include "partials/brand-logo.html" %}</a>
   <div class="header-actions">
-    {% include "partials/theme-toggle.html" %}
-    <button class="mobile-menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" hidden>
-      <svg class="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <svg class="menu-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
-    </button>
     <div class="header-menu" id="site-menu">
     <nav class="site-navigation" aria-label="Main navigation">
       {% if page and page.meta.template == 'blog-post.html' %}
@@ -16,5 +11,10 @@
     </nav>
     <a class="site-contact" href="https://www.linkedin.com/in/mark-d-819a57224/" target="_blank" rel="noopener noreferrer">About Me {% include "partials/arrow-up-right.html" %}</a>
     </div>
+    {% include "partials/theme-toggle.html" %}
+    <button class="mobile-menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" hidden>
+      <svg class="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg class="menu-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
   </div>
 </header>

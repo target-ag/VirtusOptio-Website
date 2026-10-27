@@ -1,7 +1,7 @@
 # Cloudflare Pages applies these response headers to every static page and asset.
-# Keep scripts local; only the exact build-hashed theme initializer may be inline.
+# Keep scripts local; only exact build-hashed styles, initializer and metadata may be inline.
 /*
-  Content-Security-Policy: default-src 'none'; script-src 'self' 'sha256-THEME_INIT_HASH'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; font-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; form-action 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'sha256-THEME_INIT_HASH' STRUCTURED_DATA_HASHES; script-src-attr 'none'; style-src 'self' 'sha256-SITE_STYLE_HASH'; style-src-attr 'none'; font-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; form-action 'none'; upgrade-insecure-requests
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin

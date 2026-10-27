@@ -11,7 +11,8 @@
   <title>{% block title %}{{ config.site_name }} — Ethical Selling &amp; Sales Systems{% endblock %}</title>
   {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url | e }}">{% endif %}
   <link rel="preload" href="{{ 'assets/fonts/source-sans-3-latin-v20.woff2' | url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="{{ config.extra.site_css | url }}">
+  <style>{{ config.extra.site_styles | safe }}</style>
+  {% if structured_data %}<script type="application/ld+json">{{ structured_data | safe }}</script>{% endif %}
   <script src="{{ config.extra.site_js | url }}" defer></script>
   {% block extra_scripts %}{% endblock %}
 </head>
@@ -29,7 +30,7 @@
         <p class="intro">I help businesses turn more sales conversations into customers through ethical selling and practical sales systems, so business owners can spend more time working on their business, not in it.</p>
         <a class="call-button" href="https://www.linkedin.com/in/mark-d-819a57224/" target="_blank" rel="noopener noreferrer">Find me on LinkedIn {% include "partials/arrow-up-right.html" %}</a>
       </div>
-      <div class="portrait-frame"><img class="portrait-photo" src="{{ 'assets/mark-deniel-office-768.webp' | url }}" srcset="{{ 'assets/mark-deniel-office-480.webp' | url }} 480w, {{ 'assets/mark-deniel-office-768.webp' | url }} 768w, {{ 'assets/mark-deniel-office-1024.webp' | url }} 1024w, {{ 'assets/mark-deniel-office-1254.webp' | url }} 1254w" sizes="(max-width: 459px) calc(125vw - 63.75px), 510px" alt="Mark Deniel at his desk in a bright office" width="1254" height="1254" decoding="async" fetchpriority="high"></div>
+      <div class="portrait-frame"><img class="portrait-photo" src="{{ 'assets/mark-deniel-portrait-800.webp' | url }}" srcset="{{ 'assets/mark-deniel-portrait-400.webp' | url }} 400w, {{ 'assets/mark-deniel-portrait-640.webp' | url }} 640w, {{ 'assets/mark-deniel-portrait-800.webp' | url }} 800w, {{ 'assets/mark-deniel-portrait-1000.webp' | url }} 1000w" sizes="(max-width: 459px) calc(100vw - 51px), (max-width: 767px) 408px, (max-width: 1088px) calc(40.8163vw - 41.6327px), 403px" alt="Mark Deniel at his desk in a bright office" width="1000" height="1250" decoding="async" fetchpriority="high"></div>
     </section>
     <section class="faq" aria-labelledby="faq-heading">
       <p class="eyebrow">A few things you might be wondering</p>

@@ -7,6 +7,7 @@ watch:
 
 hooks:
   - hooks/assets.py
+  - hooks/structured_data.py
 
 nav:
   - Home:
