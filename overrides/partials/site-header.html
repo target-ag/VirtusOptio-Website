@@ -3,12 +3,12 @@
   <div class="header-actions">
     <nav class="site-navigation" aria-label="Main navigation">
       {% if page and page.meta.template == 'blog-post.html' %}
-      <a class="post-back" href="{{ 'blog/' | url }}">← Back to blog</a>
+      <a class="post-back" href="{{ 'blog/' | url }}">Blog</a>
       {% else %}
       <a href="{{ 'blog/' | url }}">Blog</a>
       {% endif %}
     </nav>
-    <a class="site-contact" href="https://www.linkedin.com/in/mark-d-819a57224/" target="_blank" rel="noopener noreferrer">About Me <span aria-hidden="true">↗</span></a>
+    <a class="site-contact" href="https://www.linkedin.com/in/mark-d-819a57224/" target="_blank" rel="noopener noreferrer">About Me {% include "partials/arrow-up-right.html" %}</a>
     {% include "partials/theme-toggle.html" %}
   </div>
 </header>

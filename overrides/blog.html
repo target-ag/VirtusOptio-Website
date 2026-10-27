@@ -1,21 +1,25 @@
 {% extends "home.html" %}
-{% block title %}Business Growth Strategies — {{ config.site_name }}{% endblock %}
+{% set current_category = page.meta.category | default('', true) %}
+{% set journal_title = current_category if current_category else (page.name ~ ' archive' if page.name else 'Business Growth Strategies') %}
+{% block title %}{{ journal_title | e }} — {{ config.site_name | e }}{% endblock %}
 {% block main_content %}
 <div class="journal">
   <header class="journal-intro">
-    <p class="journal-label">Blog</p>
-    <h1>Business Growth Strategies</h1>
-    <p class="journal-description">Practical strategies</p>
+    <p class="journal-label">Blog{% if current_category %} · Category{% elif page.name %} · Archive{% endif %}</p>
+    <h1>{{ journal_title | e }}</h1>
+    <p class="journal-description">{{ page.meta.description | default('Practical strategies', true) }}</p>
   </header>
 
-  <nav class="journal-categories" aria-label="Blog category">
-    <a href="#business" aria-current="page">Business</a>
+  <nav class="journal-categories" aria-label="Blog categories">
+    <a href="{{ 'blog/' | url }}"{% if not current_category and not page.name %} aria-current="page"{% endif %}>All posts</a>
+    <a href="{{ 'blog/category/business-growth/' | url }}"{% if current_category == 'Business Growth' %} aria-current="page"{% endif %}>Business Growth</a>
+    <a href="{{ 'blog/category/sales-acquisition/' | url }}"{% if current_category == 'Sales & Acquisition' %} aria-current="page"{% endif %}>Sales &amp; Acquisition</a>
   </nav>
 
   <div id="business" class="journal-content">
-    <section class="journal-start" aria-labelledby="start-heading">
-      <h2 id="start-heading" class="journal-label">Start here</h2>
-      {% if posts %}
+    {% if posts %}
+      <section class="journal-start" aria-labelledby="start-heading">
+        <h2 id="start-heading" class="journal-label">Start here</h2>
         {% set selected = posts | selectattr('meta.start_here') | list %}
         {% for post in (selected if selected else posts)[:2] %}
         <a class="journal-start-row" href="{{ post.url | url }}">
@@ -23,43 +27,40 @@
           <time datetime="{{ post.config.date.created.isoformat() }}">{{ post.config.date.created.strftime('%b %-d, %Y') }}</time>
         </a>
         {% endfor %}
-      {% else %}
-        <div class="journal-start-row"><span>A practical guide to ethical selling</span><span class="journal-status">Coming soon</span></div>
-        <div class="journal-start-row"><span>Build a sales process you can repeat</span><span class="journal-status">Coming soon</span></div>
-      {% endif %}
-    </section>
+      </section>
 
-    {% if posts %}
       {% set featured = posts[0] %}
-      <article class="journal-featured">
-        <div class="journal-meta"><span>{% if featured.config.draft %}Draft preview{% else %}Latest{% endif %}</span><span>Business</span><time datetime="{{ featured.config.date.created.isoformat() }}">{{ featured.config.date.created.strftime('%b %-d, %Y') }}</time></div>
-        <h2><a href="{{ featured.url | url }}">{{ featured.title }}</a></h2>
-        {% if featured.meta.description %}<p>{{ featured.meta.description }}</p>{% endif %}
+      <article class="journal-featured{% if featured.meta.cover %} journal-featured-with-cover{% endif %}">
+        <div class="journal-meta"><span>{% if featured.config.draft %}Draft preview{% else %}Latest{% endif %}</span>{% for category in featured.categories %}<a href="{{ category.url | url }}">{{ category.title | e }}</a>{% endfor %}<time datetime="{{ featured.config.date.created.isoformat() }}">{{ featured.config.date.created.strftime('%b %-d, %Y') }}</time></div>
+        {% if featured.meta.cover %}
+        <a class="journal-cover journal-featured-cover" href="{{ featured.url | url }}" aria-label="Read {{ featured.title | e }}">
+          <img src="{{ featured.meta.cover.src | url }}"{% if featured.meta.cover.sources %} srcset="{% for source in featured.meta.cover.sources %}{{ source.src | url }} {{ source.width }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="(max-width: 767px) calc(100vw - 51px), (max-width: 1088px) 42vw, 430px"{% endif %} alt="{{ featured.meta.cover.alt | default('', true) | e }}" width="{{ featured.meta.cover.width }}" height="{{ featured.meta.cover.height }}" loading="lazy" decoding="async">
+        </a>
+        {% endif %}
+        <div class="journal-featured-copy">
+          <h2><a href="{{ featured.url | url }}">{{ featured.title }}</a></h2>
+          {% if featured.meta.description %}<p>{{ featured.meta.description }}</p>{% endif %}
+        </div>
       </article>
       <div class="journal-feed">
         {% for post in posts[1:] %}
-        <article class="journal-entry">
-          <div class="journal-entry-meta"><time datetime="{{ post.config.date.created.isoformat() }}">{{ post.config.date.created.strftime('%b %-d, %Y') }}</time><span>Business</span></div>
-          <div><h2><a href="{{ post.url | url }}">{{ post.title }}</a></h2>{% if post.meta.description %}<p>{{ post.meta.description }}</p>{% endif %}</div>
+        <article class="journal-entry{% if post.meta.cover %} journal-entry-with-cover{% endif %}">
+          <div class="journal-entry-meta"><time datetime="{{ post.config.date.created.isoformat() }}">{{ post.config.date.created.strftime('%b %-d, %Y') }}</time>{% for category in post.categories %}<a href="{{ category.url | url }}">{{ category.title | e }}</a>{% endfor %}</div>
+          {% if post.meta.cover %}
+          <a class="journal-cover journal-entry-cover" href="{{ post.url | url }}" aria-label="Read {{ post.title | e }}">
+            <img src="{{ post.meta.cover.src | url }}"{% if post.meta.cover.sources %} srcset="{% for source in post.meta.cover.sources %}{{ source.src | url }} {{ source.width }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="(max-width: 767px) calc(100vw - 51px), 200px"{% endif %} alt="{{ post.meta.cover.alt | default('', true) | e }}" width="{{ post.meta.cover.width }}" height="{{ post.meta.cover.height }}" loading="lazy" decoding="async">
+          </a>
+          {% endif %}
+          <div class="journal-entry-copy"><h2><a href="{{ post.url | url }}">{{ post.title }}</a></h2>{% if post.meta.description %}<p>{{ post.meta.description }}</p>{% endif %}</div>
         </article>
         {% endfor %}
       </div>
     {% else %}
-      <article class="journal-featured">
-        <div class="journal-meta"><span>Coming soon</span><span>Business</span></div>
-        <h2>Better sales conversations start with better questions</h2>
-        <p>A look at how listening, understanding the real problem, and asking thoughtful questions can create a stronger foundation for a sale.</p>
-      </article>
-      <div class="journal-feed">
-        <article class="journal-entry">
-          <div class="journal-entry-meta"><span>Coming soon</span><span>Business</span></div>
-          <div><h2>Follow up without putting people under pressure</h2><p>Practical ways to keep a conversation moving while respecting your customer’s time and decisions.</p></div>
-        </article>
-        <article class="journal-entry">
-          <div class="journal-entry-meta"><span>Coming soon</span><span>Business</span></div>
-          <div><h2>Turn new customers into lasting relationships</h2><p>Simple habits for staying close to your customers and finding opportunities to support them as their business grows.</p></div>
-        </article>
-      </div>
+      <section class="journal-empty" aria-labelledby="journal-empty-heading">
+        <h2 id="journal-empty-heading">{% if current_category %}No posts in {{ current_category | e }} yet.{% else %}No posts published yet.{% endif %}</h2>
+        <p>{% if current_category %}New articles will appear here. In the meantime, explore the latest business growth strategies.{% else %}Practical strategies for business growth, sales and acquisition are on the way.{% endif %}</p>
+        {% if current_category %}<a class="text-link" href="{{ 'blog/' | url }}">Explore all posts</a>{% endif %}
+      </section>
     {% endif %}
     {% if pagination %}
     <nav class="journal-pagination" aria-label="Article pages">{{ pagination({"link_attr": {"class": "journal-page-link"}, "curpage_attr": {"class": "journal-page-current"}}) }}</nav>

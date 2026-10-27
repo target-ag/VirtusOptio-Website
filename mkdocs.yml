@@ -63,8 +63,10 @@ plugins:
       blog_dir: blog
       authors: false
       categories: true
+      categories_slugify: !!python/name:markdown.extensions.toc.slugify
       categories_allowed:
-        - Business
+        - Business Growth
+        - Sales & Acquisition
 
 markdown_extensions:
   - attr_list

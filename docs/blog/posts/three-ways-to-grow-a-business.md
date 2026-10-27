@@ -5,7 +5,19 @@ slug: three-ways-to-grow-a-business
 draft: false
 start_here: true
 categories:
-  - Business
+  - Business Growth
+cover:
+  src: assets/blog/three-ways-grow-business-680.webp
+  alt: More customers, greater value per sale, and more frequent purchases.
+  width: 1672
+  height: 941
+  sources:
+    - src: assets/blog/three-ways-grow-business-480.webp
+      width: 480
+    - src: assets/blog/three-ways-grow-business-680.webp
+      width: 680
+    - src: assets/blog/three-ways-grow-business-1360.webp
+      width: 1360
 description: Get more customers, increase the value of each sale, and encourage repeat business. Small improvements in all three can compound into significant revenue growth.
 ---
 

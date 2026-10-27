@@ -5,7 +5,7 @@ slug: better-sales-conversations
 draft: true
 start_here: true
 categories:
-  - Business
+  - Sales & Acquisition
 description: A practical approach to understanding your customer’s needs, finding a genuine fit, and agreeing on a useful next step.
 summary: Before explaining your solution, understand the problem your customer wants to solve. Ask about their current situation, explore what needs to change, and check that you have understood. Agree on a next step only when it makes sense for both sides.
 faq:

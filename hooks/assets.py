@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STYLES = ("fonts.css", "home.css", "blog.css", "post.css", "theme.css", "navigation.css", "legal.css", "email-contact.css")
-SCRIPTS = ("theme.js", "cookie-settings.js", "email-contact.js")
+SCRIPTS = ("theme.js", "navigation.js", "cookie-settings.js", "email-contact.js")
 
 
 def on_page_content(html, **kwargs):

@@ -57,17 +57,19 @@ See Cloudflare's [Git integration instructions](https://developers.cloudflare.co
 
 The homepage uses the supplied portrait and “Find me on LinkedIn” links. Draft articles remain excluded from production, and the public blog can retain its Coming soon state until approved articles are ready. The Cloudflare account and initial Pages deployment are configured; custom-domain availability depends on DNS activation and Cloudflare's domain verification.
 
-## Business blog layout
+## Blog categories and article lists
 
-The blog uses `overrides/blog.html` and `docs/stylesheets/blog.css`. Its only category is Business. Until articles are added, the layout shows sample topics marked Coming soon.
+The blog uses `overrides/blog.html` and `docs/stylesheets/blog.css`. Its categories are **Business Growth** and **Sales & Acquisition**. The shared category links open filtered lists, and an empty category shows an explicit empty state. Source pages under `docs/blog/category/` keep both categories available before they have published posts. The old Business category URL redirects to Business Growth.
 
-To add a post, create a Markdown file in `docs/blog/posts/` with `title`, `date`, `description`, and `categories: [Business]` in its front matter. Add `start_here: true` to feature it in the Start here list. The newest post becomes the featured article automatically; the remaining posts appear below it. Descriptions are the summaries shown in the list.
+To add a post, create a Markdown file in `docs/blog/posts/` with `title`, `date`, `description`, and `categories: [Business Growth]` or `categories: [Sales & Acquisition]` in its front matter. Choose both when the post belongs to both topics. Add `start_here: true` to feature it in the text-only Start here list. The newest post becomes the featured article automatically; the remaining posts appear below it. Descriptions are the summaries shown in the list.
+
+Add a `cover` object with `src`, `alt`, `width`, and `height` to show the article image in the latest and category lists. Optional `sources` entries contain `src` and `width` for responsive image variants. Use the growth article's front matter as an example. Paths are relative to the site root. The list cover does not insert an image into the article body; include that separately when wanted.
 
 ## Individual article layout
 
 Articles use `overrides/blog-post.html` and `docs/stylesheets/post.css`. The template includes a narrow reading column, date and reading time, author details, an optional TL;DR, and a Continue reading section.
 
-Every Markdown post added under `docs/blog/posts/` automatically uses this article template through the MkDocs blog plugin. No `template` front-matter field is needed. Keep template overrides out of individual posts so new articles inherit the same typography, cobalt accents, light/dark themes, sticky header, and LinkedIn contact action.
+Every Markdown post added under `docs/blog/posts/` automatically uses this article template through the MkDocs blog plugin. No `template` front-matter field is needed. Keep template overrides out of individual posts so new articles inherit the same typography, cobalt accents, light/dark themes, shared header, and LinkedIn contact action. The mobile header hides on downward scrolling and returns on upward scrolling or keyboard focus; desktop navigation stays visible. Use the shared `partials/arrow-up-right.html` SVG for link arrows so iOS does not render emoji.
 
 Optional front matter:
 

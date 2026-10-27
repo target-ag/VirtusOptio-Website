@@ -7,7 +7,7 @@
   {% if page.config.draft %}<p class="post-draft">Draft preview · Not published.</p>{% endif %}
   <header class="post-intro">
     <div class="post-meta">
-      <a href="{{ 'blog/' | url }}#business">Business</a>
+      {% for category in page.categories %}<a href="{{ category.url | url }}">{{ category.title }}</a>{% endfor %}
       <time datetime="{{ page.config.date.created.isoformat() }}">{{ page.config.date.created.strftime('%b %-d, %Y') }}</time>
       {% if page.config.readtime %}<span>{{ page.config.readtime }} min read</span>{% endif %}
     </div>
@@ -18,7 +18,7 @@
       <span class="post-author-name">{{ author }}</span><span class="post-author-role">{{ role }}</span>
     </a>
     {% if page.meta.guide and page.meta.guide.title and page.meta.guide.url %}
-    <div class="post-series"><span>{{ page.meta.guide.label | default('Related article', true) | e }}</span><a href="{{ page.meta.guide.url | url | e }}">{{ page.meta.guide.title | e }} <span class="post-series-arrow" aria-hidden="true">↗</span></a></div>
+    <div class="post-series"><span>{{ page.meta.guide.label | default('Related article', true) | e }}</span><a href="{{ page.meta.guide.url | url | e }}">{{ page.meta.guide.title | e }} <span class="post-series-arrow" aria-hidden="true">{% include "partials/arrow-up-right.html" %}</span></a></div>
     {% endif %}
   </header>
   {% if page.meta.summary %}
@@ -42,14 +42,14 @@
       <div><h2 id="author-heading">{{ author }}</h2><p class="post-author-role">{{ role }}</p></div>
     </div>
     <p>{{ page.meta.author_bio | default('Helping businesses turn more sales conversations into customers through ethical selling and practical sales systems.', true) }}</p>
-    <a class="text-link" href="https://www.linkedin.com/in/mark-d-819a57224/" target="_blank" rel="noopener noreferrer">More about {{ author }} <span aria-hidden="true">↗</span></a>
+    <a class="text-link" href="https://www.linkedin.com/in/mark-d-819a57224/" target="_blank" rel="noopener noreferrer">More about {{ author }} <span aria-hidden="true">{% include "partials/arrow-up-right.html" %}</span></a>
   </section>
   <section class="post-related" aria-labelledby="related-heading">
-    <div class="post-related-heading"><h2 id="related-heading">Continue reading</h2><a class="text-link" href="{{ 'blog/' | url }}">All posts ↗</a></div>
+    <div class="post-related-heading"><h2 id="related-heading">Continue reading</h2><a class="text-link" href="{{ 'blog/' | url }}">All posts {% include "partials/arrow-up-right.html" %}</a></div>
     {% if page.meta.related %}
       {% for item in page.meta.related %}<a class="post-related-row" href="{{ item.url | url }}"><span>{{ item.title }}</span>{% if item.date %}<span>{{ item.date }}</span>{% endif %}</a>{% endfor %}
     {% else %}
-      <a class="post-related-row" href="{{ 'blog/' | url }}"><span>Explore Business Growth Strategies</span><span aria-hidden="true">↗</span></a>
+      <a class="post-related-row" href="{{ 'blog/' | url }}"><span>Explore Business Growth Strategies</span><span aria-hidden="true">{% include "partials/arrow-up-right.html" %}</span></a>
     {% endif %}
   </section>
 </article>
