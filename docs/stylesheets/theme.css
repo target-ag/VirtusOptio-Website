@@ -44,8 +44,8 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
   --paper: #181818;
-  --ink: #f3f0ea;
-  --muted: #b9b7b2;
+  --ink: #f7f9fc;
+  --muted: #ccd1da;
   --accent: #739BFF;
   --accent-strong: #4C7DFF;
   --button-fill: #345FCB;

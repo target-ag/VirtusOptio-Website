@@ -29,31 +29,17 @@
         {% endfor %}
       </section>
 
-      {% set featured = posts[0] %}
-      <article class="journal-featured{% if featured.meta.cover %} journal-featured-with-cover{% endif %}">
-        <div class="journal-meta"><span>{% if featured.config.draft %}Draft preview{% else %}Latest{% endif %}</span>{% for category in featured.categories %}<a href="{{ category.url | url }}">{{ category.title | e }}</a>{% endfor %}<time datetime="{{ featured.config.date.created.isoformat() }}">{{ featured.config.date.created.strftime('%b %-d, %Y') }}</time></div>
-        <div class="journal-featured-copy">
-          <h2><a href="{{ featured.url | url }}">{{ featured.title }}</a></h2>
-        {% if featured.meta.cover %}
-        <a class="journal-cover journal-featured-cover" href="{{ featured.url | url }}" aria-label="Read {{ featured.title | e }}">
-          <img src="{{ featured.meta.cover.src | url }}"{% if featured.meta.cover.sources %} srcset="{% for source in featured.meta.cover.sources %}{{ source.src | url }} {{ source.width }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="(max-width: 384px) calc(84vw - 43px), (max-width: 767px) 280px, 320px"{% endif %} alt="{{ featured.meta.cover.alt | default('', true) | e }}" width="{{ featured.meta.cover.width }}" height="{{ featured.meta.cover.height }}" loading="lazy" decoding="async">
-        </a>
-        {% endif %}
-          {% if featured.meta.description %}<p>{{ featured.meta.description }}</p>{% endif %}
-        </div>
-      </article>
       <div class="journal-feed">
-        {% for post in posts[1:] %}
-        <article class="journal-entry{% if post.meta.cover %} journal-entry-with-cover{% endif %}">
-          <div class="journal-entry-meta"><time datetime="{{ post.config.date.created.isoformat() }}">{{ post.config.date.created.strftime('%b %-d, %Y') }}</time>{% for category in post.categories %}<a href="{{ category.url | url }}">{{ category.title | e }}</a>{% endfor %}</div>
+        {% for post in posts %}
+        <article class="journal-entry{% if loop.first %} journal-featured{% endif %}">
+          <div class="journal-entry-meta">
+            <time datetime="{{ post.config.date.created.isoformat() }}">{{ post.config.date.created.strftime('%b %-d, %Y') }}</time>
+            {% for category in post.categories %}<a href="{{ category.url | url }}">{{ category.title | e }}</a>{% endfor %}
+            {% if post.config.draft %}<span class="journal-draft">Draft preview</span>{% endif %}
+          </div>
           <div class="journal-entry-copy">
-          <h2><a href="{{ post.url | url }}">{{ post.title }}</a></h2>
-          {% if post.meta.cover %}
-          <a class="journal-cover journal-entry-cover" href="{{ post.url | url }}" aria-label="Read {{ post.title | e }}">
-            <img src="{{ post.meta.cover.src | url }}"{% if post.meta.cover.sources %} srcset="{% for source in post.meta.cover.sources %}{{ source.src | url }} {{ source.width }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="(max-width: 384px) calc(84vw - 43px), (max-width: 767px) 280px, 320px"{% endif %} alt="{{ post.meta.cover.alt | default('', true) | e }}" width="{{ post.meta.cover.width }}" height="{{ post.meta.cover.height }}" loading="lazy" decoding="async">
-          </a>
-          {% endif %}
-          {% if post.meta.description %}<p>{{ post.meta.description }}</p>{% endif %}
+            <h2><a href="{{ post.url | url }}">{{ post.title }}</a></h2>
+            {% if post.meta.description %}<p>{{ post.meta.description }}</p>{% endif %}
           </div>
         </article>
         {% endfor %}
