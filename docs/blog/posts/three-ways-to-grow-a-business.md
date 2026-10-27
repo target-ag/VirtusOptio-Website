@@ -59,7 +59,7 @@ What if the next stage of growth doesn't begin with finding more prospects, but 
 
 This is where a surprisingly simple principle comes in.
 
-**No matter what you sell, there are only three ways to grow your revenue.**
+## No matter what you sell, there are only three ways to grow your revenue.
 
 _Three Ways to Grow a Business_ framework breaks them down into three levers:
 
@@ -74,7 +74,7 @@ Simple enough.
 
 But here's what makes these three levers particularly interesting.
 
-**You don't need dramatic improvements in any one of them to create meaningful growth.**
+## You don't need dramatic improvements in any one of them to create meaningful growth.
 
 Improve all three by just 10%, and the combined effect is a **33.1% increase in revenue**.
 
