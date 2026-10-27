@@ -4,7 +4,7 @@
 {% set author = page.meta.author_name | default('Mark Deniel', true) %}
 {% set role = page.meta.author_role | default('Virtus Optio', true) %}
 <article class="post-page">
-  {% if page.config.draft %}<p class="post-draft">Draft preview · Sample copy for reviewing this layout. Not published.</p>{% endif %}
+  {% if page.config.draft %}<p class="post-draft">Draft preview · Not published.</p>{% endif %}
   <header class="post-intro">
     <div class="post-meta">
       <a href="{{ 'blog/' | url }}#business">Business</a>

@@ -1,8 +1,16 @@
-/* Footer popup and standalone settings share the same functional preference. */
+/* Functional preferences and a notice acknowledgement, never tracking consent. */
 (() => {
   "use strict";
 
   const key = "virtus-optio-theme";
+  const noticeKey = "virtus-optio-cookie-notice";
+  const noticeVersion = 1;
+  const noticeLifetime = 180 * 24 * 60 * 60 * 1000;
+  const notice = document.getElementById("cookie-notice");
+  const dialog = document.getElementById("cookie-dialog");
+  let focusNoticeAfterClose = false;
+  let noticeReturnTarget;
+  let opener;
   const panels = Array.from(document.querySelectorAll("[data-cookie-settings]"), (element) => ({
     output: element.querySelector("[data-saved-theme]"),
     feedback: element.querySelector("[data-cookie-feedback]"),
@@ -45,9 +53,59 @@
     refresh();
   });
 
-  const dialog = document.getElementById("cookie-dialog");
+  function hasCurrentAcknowledgement() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(noticeKey));
+      const age = saved && Date.now() - saved.acknowledgedAt;
+      return !!saved && saved.version === noticeVersion && Number.isFinite(saved.acknowledgedAt)
+        && age >= 0 && age < noticeLifetime;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  if (notice) {
+    notice.hidden = hasCurrentAcknowledgement();
+    notice.querySelector("[data-cookie-acknowledge]").addEventListener("click", (event) => {
+      const restoreKeyboardFocus = event.detail === 0 && notice.contains(document.activeElement);
+      try {
+        localStorage.setItem(noticeKey, JSON.stringify({ version: noticeVersion, acknowledgedAt: Date.now() }));
+      } catch (_) {
+        // Dismiss this page's notice even when persistent storage is unavailable.
+      }
+      notice.hidden = true;
+      if (restoreKeyboardFocus) {
+        const target = noticeReturnTarget?.isConnected ? noticeReturnTarget : document.querySelector("a.wordmark");
+        target?.focus({ preventScroll: true });
+      }
+    });
+    document.querySelectorAll("[data-cookie-show-notice]").forEach((button) => {
+      button.hidden = false;
+      button.addEventListener("click", () => {
+        noticeReturnTarget = dialog?.contains(button)
+          ? (opener && !notice.contains(opener) ? opener : null)
+          : button;
+        try {
+          localStorage.removeItem(noticeKey);
+        } catch (_) {
+          // The notice can still be shown without access to browser storage.
+        }
+        notice.hidden = false;
+        if (dialog?.open) {
+          focusNoticeAfterClose = true;
+          dialog.close();
+        } else {
+          notice.querySelector("h2").focus();
+        }
+      });
+    });
+  }
+  window.addEventListener("storage", (event) => {
+    if (event.key === key || event.key === null) refresh();
+    if (notice && (event.key === noticeKey || event.key === null)) notice.hidden = hasCurrentAcknowledgement();
+  });
+
   if (!dialog || typeof dialog.showModal !== "function") return;
-  let opener;
   document.querySelectorAll("[data-cookie-open]").forEach((link) => {
     link.setAttribute("aria-haspopup", "dialog");
     link.setAttribute("aria-controls", dialog.id);
@@ -70,6 +128,9 @@
   });
   dialog.addEventListener("close", () => {
     document.documentElement.classList.remove("cookie-dialog-open");
-    if (opener?.isConnected) opener.focus();
+    if (focusNoticeAfterClose) {
+      focusNoticeAfterClose = false;
+      notice.querySelector("h2").focus();
+    } else if (opener?.isConnected) opener.focus();
   });
 })();

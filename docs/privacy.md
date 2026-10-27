@@ -1,6 +1,7 @@
 ---
 title: Privacy Policy
 template: legal.html
+updated: 2026-10-27
 description: How personal information is handled when you visit Virtus Optio or contact us.
 ---
 
@@ -23,6 +24,10 @@ The basis for this technical processing is the legitimate interest in operating 
 ### Your display preference
 
 If you switch between light and dark mode, your browser stores that choice locally. The site uses it to remember the appearance you requested. It is not a visitor identifier and is not sent to us by the theme feature. See the [Cookie Policy](cookies.md) and [Cookie Settings](cookie-settings.md).
+
+### Cookie information notice
+
+The cookie notice is shown to first-time visitors worldwide, including in Europe, without a location lookup. If you choose **Got it**, your browser locally stores the notice version and dismissal time so the notice does not repeat for up to 180 days. This does not enable tracking. The value is not sent to us by this feature. You can remove it using **Show cookie notice** in [Cookie Settings](cookie-settings.md).
 
 ### Contacting us and working together
 
@@ -48,6 +53,8 @@ Some providers operate internationally and may process information outside the E
 Retention depends on the purpose and the type of record. Enquiry information is kept for handling the enquiry and any necessary follow-up. Engagement and administrative records may need to remain available for the assignment, legal obligations or legal claims. The criteria are whether the information remains necessary for those purposes and whether a legal retention period applies. Technical records held by providers follow the relevant service's retention arrangements.
 
 The saved theme preference has no automatic expiry. You can remove it through [Cookie Settings](cookie-settings.md) or your browser's site-data controls.
+
+The cookie notice preference is used for up to 180 days. When it expires, or the notice version changes, the notice appears again on your next visit.
 
 ## Your privacy rights
 

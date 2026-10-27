@@ -1,11 +1,23 @@
 """Build fingerprinted assets and authorize only the exact theme initializer."""
 import base64
 import hashlib
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STYLES = ("fonts.css", "home.css", "blog.css", "post.css", "theme.css", "navigation.css", "legal.css", "email-contact.css")
 SCRIPTS = ("theme.js", "cookie-settings.js", "email-contact.js")
+
+
+def on_page_content(html, **kwargs):
+    """Give content email links the same choices as the shared footer."""
+    def mark_contact(match):
+        anchor = match.group(0)
+        if "data-email-contact" in anchor:
+            return anchor
+        return anchor.replace("<a ", "<a data-email-contact ", 1)
+
+    return re.sub(r'<a\s[^>]*href="mailto:virtusoptio@gmail\.com"[^>]*>', mark_contact, html)
 
 
 def on_config(config):

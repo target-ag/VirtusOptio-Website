@@ -6,7 +6,7 @@
     <p class="legal-eyebrow">Information</p>
     <h1>{{ page.title }}</h1>
     {% if page.meta.description %}<p class="legal-description">{{ page.meta.description }}</p>{% endif %}
-    <p class="legal-updated">Last updated <time datetime="2026-10-26">26 October 2026</time></p>
+    <p class="legal-updated">Last updated {% if page.meta.updated %}<time datetime="{{ page.meta.updated.isoformat() }}">{{ page.meta.updated.strftime('%-d %B %Y') }}</time>{% else %}<time datetime="2026-10-26">26 October 2026</time>{% endif %}</p>
   </header>
   <div class="legal-prose">{{ page.content }}</div>
   {% if page.meta.cookie_settings %}{% include "partials/cookie-settings.html" %}{% endif %}

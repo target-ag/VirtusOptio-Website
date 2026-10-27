@@ -24,6 +24,7 @@
 .post-prose { color: var(--ink); font-size: 19px; line-height: 1.75; overflow-wrap: anywhere; }
 .post-prose > :first-child { margin-top: 0; }
 .post-prose p { margin: 0 0 24px; }
+.post-prose hr { margin: 34px 0; border: 0; border-top: 1px solid var(--line); }
 .post-prose h2, .post-faq > h2 { max-width: none; margin: 56px 0 22px; font-size: 32px; line-height: 1.25; letter-spacing: -.02em; scroll-margin-top: 35px; }
 .post-prose h3, .post-faq h3 { font: 700 22px/1.4 "Source Sans 3", sans-serif; margin: 32px 0 14px; }
 .post-prose a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }

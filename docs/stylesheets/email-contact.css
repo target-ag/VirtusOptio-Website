@@ -16,6 +16,8 @@
 .email-contact-dialog:not([open]) { display: none; }
 .email-contact-dialog::backdrop { background: #080e1cb3; }
 .email-contact-dialog h2 { margin: 20px 0 12px; color: var(--ink); font-size: 30px; line-height: 1.2; }
+/* The heading receives initial screen-reader focus; visible rings stay on controls. */
+#email-contact-title:focus { outline: none; }
 .email-contact-dialog p { margin: 0 0 16px; color: var(--muted); line-height: 1.6; }
 .email-contact-dialog .email-contact-address { color: var(--ink); font-size: 20px; font-weight: 600; overflow-wrap: anywhere; }
 .email-contact-dialog button,
