@@ -66,6 +66,12 @@
 
   if (notice) {
     notice.hidden = hasCurrentAcknowledgement();
+    // Keep a restored page's snapshot hidden until its saved preference is checked.
+    // This also handles dismissal on another page before returning with Back/Forward.
+    window.addEventListener("pagehide", () => { notice.hidden = true; });
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) notice.hidden = hasCurrentAcknowledgement();
+    });
     notice.querySelector("[data-cookie-acknowledge]").addEventListener("click", (event) => {
       const restoreKeyboardFocus = event.detail === 0 && notice.contains(document.activeElement);
       try {
