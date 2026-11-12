@@ -11,6 +11,8 @@ Virtus Optio, registered in the Netherlands under **KVK number 95111492**, is re
 
 For privacy questions or requests, email [virtusoptio@gmail.com](mailto:virtusoptio@gmail.com) or contact us on [WhatsApp: +31 6 16125169](https://wa.me/31616125169).
 
+Business address: **Kolk 64, 3011 MD Rotterdam, Netherlands**.
+
 ## Information we use and why
 
 ### Visiting this website

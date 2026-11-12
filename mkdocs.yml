@@ -69,6 +69,11 @@ extra:
   generator: false
   contact_email: virtusoptio@gmail.com
   vat_id: NL005130408B50
+  business_address:
+    street: Kolk 64
+    postal_code: 3011 MD
+    city: Rotterdam
+    country: NL
 
 extra_css:
   - stylesheets/extra.css

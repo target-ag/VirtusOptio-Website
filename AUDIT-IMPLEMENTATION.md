@@ -26,7 +26,7 @@ Source: NOMAXX audit dated 11 November 2026, supplied by Markos. Changes prepare
 - No booking link: enquiries should go to email or LinkedIn.
 - Markos is setting up domain email. Do not install SPF `-all` or null MX while that setup is in progress. Use the chosen provider's actual MX, SPF and DKIM records and validate alignment before enforcing DMARC.
 - The currently published Gmail address remains the temporary contact. Replace `extra.contact_email` when Markos supplies the new address and update the provider description in the privacy policy if applicable.
-- VAT ID **NL005130408B50**, supplied by Markos on 12 November 2026, is included in the footer, terms and structured business data. The business address still needs to be supplied for public display. The audit author's Rotterdam address and VAT ID are NOMAXX's details, not Virtus Optio's.
+- VAT ID **NL005130408B50**, supplied by Markos on 12 November 2026, is included in the footer, terms and structured business data. Business address **Kolk 64, 3011 MD Rotterdam, Netherlands**, supplied by Markos, is included in the footer, terms, privacy policy and structured business data. The audit author's Rotterdam address and VAT ID are NOMAXX's details, not Virtus Optio's.
 - Real client reviews, logos and results require supplied content and permission. None were invented.
 
 ## Account-level follow-up (not completed by source changes)

@@ -8,7 +8,7 @@ description: How freelance services and business engagements with Virtus Optio a
 
 Virtus Optio provides freelance services relating to sales, business growth and client relationships to **business clients acting in a professional or commercial capacity**. These terms are intended for those engagements.
 
-Virtus Optio is registered with the Netherlands Chamber of Commerce under **KVK number 95111492**. VAT identification number: **NL005130408B50**. Contact us at [virtusoptio@gmail.com](mailto:virtusoptio@gmail.com) or on [WhatsApp: +31 6 16125169](https://wa.me/31616125169).
+Virtus Optio is registered with the Netherlands Chamber of Commerce under **KVK number 95111492**. VAT identification number: **NL005130408B50**. Business address: **Kolk 64, 3011 MD Rotterdam, Netherlands**. Contact us at [virtusoptio@gmail.com](mailto:virtusoptio@gmail.com) or on [WhatsApp: +31 6 16125169](https://wa.me/31616125169).
 
 ## Agreeing an engagement
 

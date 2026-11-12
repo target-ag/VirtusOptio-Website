@@ -60,6 +60,13 @@ def _homepage(config, base):
         "description": config.site_description,
         "email": config.extra["contact_email"],
         "vatID": config.extra["vat_id"],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": config.extra["business_address"]["street"],
+            "postalCode": config.extra["business_address"]["postal_code"],
+            "addressLocality": config.extra["business_address"]["city"],
+            "addressCountry": config.extra["business_address"]["country"],
+        },
         "contactPoint": {
             "@type": "ContactPoint",
             "url": "https://wa.me/31616125169",
