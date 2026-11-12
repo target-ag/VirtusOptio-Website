@@ -8,15 +8,28 @@ watch:
 hooks:
   - hooks/assets.py
   - hooks/structured_data.py
+  - hooks/seo.py
 
 nav:
   - Home:
     - About: index.md
+  - About: about.md
+  - Services:
+    - Overview: services/index.md
+    - Ethical selling: services/ethical-selling.md
+    - Sales systems: services/sales-systems.md
+    - Client relationships: services/client-relationships.md
+  - Contact: contact.md
   - Blog:
     - blog/index.md 
 
 exclude_docs: |
   portfolio/
+  assets/brand/virtus-optio-logo.png
+  assets/brand/virtus-optio-logo-v1.png
+  assets/brand/virtus-optio-logo-purple-blue.png
+  assets/brand/virtus-optio-logo-purple-blue.webp
+  assets/fonts/SOURCES.txt
 
 theme:
   name: material
@@ -54,6 +67,8 @@ theme:
 
 extra:
   generator: false
+  contact_email: virtusoptio@gmail.com
+  vat_id: NL005130408B50
 
 extra_css:
   - stylesheets/extra.css
@@ -63,6 +78,7 @@ plugins:
   - blog:
       blog_dir: blog
       authors: false
+      post_url_format: "{slug}"
       categories: true
       categories_slugify: !!python/name:markdown.extensions.toc.slugify
       categories_allowed:

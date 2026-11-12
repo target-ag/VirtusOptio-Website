@@ -1,7 +1,7 @@
 ---
 title: Cookie Settings
 template: legal.html
-updated: 2026-10-27
+updated: 2026-11-12
 description: Manage the functional preferences saved in this browser.
 cookie_settings: true
 ---
@@ -12,6 +12,6 @@ When you use the theme switch, this browser saves your choice of light or dark m
 
 Clearing a preference does not prevent you from choosing a theme again. Using the theme switch afterwards saves your new choice.
 
-The cookie information notice appears automatically until you choose **Got it**. That dismissal is remembered for up to 180 days. Use **Show cookie notice** below to remove that preference and display the notice again. This does not change your theme or enable tracking.
+No cookie banner interrupts your visit. The site removes the obsolete acknowledgement saved by earlier versions when browser storage is available.
 
 Read the [Cookie Policy](cookies.md) and [Privacy Policy](privacy.md) for details about functional storage, hosting and security.

@@ -7,11 +7,15 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
-STYLES = ("fonts.css", "home.css", "blog.css", "post.css", "theme.css", "navigation.css", "legal.css", "email-contact.css")
+STYLES = ("fonts.css", "home.css", "blog.css", "post.css", "theme.css", "navigation.css", "legal.css", "email-contact.css", "content.css")
 SCRIPTS = ("theme.js", "navigation.js", "cookie-settings.js", "email-contact.js")
 
 
-def on_page_content(html, **kwargs):
+def on_page_markdown(markdown, *, config, **kwargs):
+    return markdown.replace("virtusoptio@gmail.com", config.extra["contact_email"])
+
+
+def on_page_content(html, *, config, **kwargs):
     """Give content email links the same choices as the shared footer."""
     def mark_contact(match):
         anchor = match.group(0)
@@ -20,7 +24,7 @@ def on_page_content(html, **kwargs):
         # This is the public business contact; its own dialog needs no decoder.
         return "<!--email_off-->" + anchor + "<!--/email_off-->"
 
-    return re.sub(r'<a\s[^>]*href="mailto:virtusoptio@gmail\.com"[^>]*>.*?</a>', mark_contact, html, flags=re.S)
+    return re.sub(r'<a\s[^>]*href="mailto:' + re.escape(config.extra['contact_email']) + r'"[^>]*>.*?</a>', mark_contact, html, flags=re.S)
 
 
 def sha256(value):
@@ -72,6 +76,7 @@ def on_post_build(config):
     structured = StructuredDataHashes()
     for page in site.rglob("*.html"):
         structured.feed(page.read_text())
+    (site / "stylesheets/fonts.css").unlink(missing_ok=True)
     headers = site / "_headers"
     headers.write_text(headers.read_text()
                       .replace("THEME_INIT_HASH", sha256(config.extra["theme_init"]))

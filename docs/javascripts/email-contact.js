@@ -5,11 +5,11 @@
   const dialog = document.getElementById("email-contact-dialog");
   if (!dialog || typeof dialog.showModal !== "function") return;
 
-  const email = "virtusoptio@gmail.com";
   const heading = dialog.querySelector("h2");
   const feedback = dialog.querySelector("[data-email-feedback]");
   const fallback = dialog.querySelector("[data-email-copy-fallback]");
   const address = fallback.querySelector("input");
+  const email = address.value;
   let opener;
 
   document.querySelectorAll("[data-email-contact]").forEach((link) => {
@@ -35,7 +35,13 @@
   });
   dialog.addEventListener("close", () => {
     document.documentElement.classList.remove("email-dialog-open");
-    if (opener?.isConnected) opener.focus();
+    if (opener?.isConnected) {
+      // Mobile navigation collapses when Contact opens this dialog.
+      const target = opener.getClientRects().length
+        ? opener
+        : document.querySelector("[data-menu-toggle]");
+      target?.focus();
+    }
   });
 
   dialog.querySelector("[data-copy-email]").addEventListener("click", async () => {

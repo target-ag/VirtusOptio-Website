@@ -1,7 +1,7 @@
 ---
 title: Cookie Policy
 template: legal.html
-updated: 2026-10-27
+updated: 2026-11-12
 description: Cookies, browser storage and your choices on this website.
 ---
 
@@ -9,9 +9,9 @@ description: Cookies, browser storage and your choices on this website.
 
 Virtus Optio does not currently use optional advertising or analytics cookies, tracking pixels, embedded social-media widgets or a third-party chat widget. There is no advertising or analytics consent to enable on this website.
 
-The site uses browser preferences to remember a light or dark theme when you choose it and to remember when you dismiss the cookie notice. These use **local storage**, rather than cookies: they remain in your browser and are not automatically attached to website requests.
+The site uses browser preferences to remember a light or dark theme when you choose it. These use **local storage**, rather than cookies: they remain in your browser and are not automatically attached to website requests.
 
-A cookie information notice appears automatically for visitors who have not dismissed the current notice, including visitors in Europe. It is shown worldwide without looking up your location. Choosing **Got it** dismisses the notice; it does not enable advertising, analytics or other tracking.
+There is no automatic cookie banner. Information and theme controls remain available through the footer. No optional tracking is enabled.
 
 ## Saved theme preference
 
@@ -27,19 +27,9 @@ A cookie information notice appears automatically for visitors who have not dism
 
 This functional preference contains no name or contact details and is not used to track you across websites. The initial visit reads any existing preference but does not create one simply because you opened the page.
 
-## Cookie notice preference
+## Previous notice preference
 
-| Item | Details |
-| --- | --- |
-| Name | `virtus-optio-cookie-notice` |
-| Type | First-party local storage |
-| Values | Notice version and the time you dismissed it |
-| Purpose | Remember that you chose to dismiss this information notice |
-| When saved | Only when you choose **Got it** |
-| Duration | Used for up to 180 days; after that, the notice appears again on your next visit |
-| Removal | Choose **Show cookie notice** in [Cookie Settings](cookie-settings.md), or clear this site's browser data |
-
-This preference is not a visitor identifier and is not shared with us or used to track visits. The notice also appears again if its version changes. If your browser blocks local storage, you can still dismiss the notice for the current page, but it may appear again on another page or visit.
+Earlier versions stored a notice dismissal under `virtus-optio-cookie-notice`. The site now removes that obsolete value when browser storage is available. It no longer creates or reads a notice acknowledgement.
 
 ## Hosting and security
 

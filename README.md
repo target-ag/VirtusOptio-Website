@@ -20,7 +20,7 @@ Open [the local preview](http://127.0.0.1:8000/). The preview includes draft blo
 
 ```sh
 .venv/bin/python -m mkdocs build --strict
-.venv/bin/python scripts/check_security.py site
+.venv/bin/python scripts/check_security.py site && python scripts/check_site.py
 ```
 
 The generated website is written to `site/`, which is excluded from Git. Cloudflare Pages runs the production build and hosts the result whenever `main` changes.
@@ -37,7 +37,7 @@ The canonical production URL is [virtusoptio.com](https://virtusoptio.com/), con
    | --- | --- |
    | Production branch | `main` |
    | Framework preset | `None` |
-   | Build command | `pip install -r requirements.txt && mkdocs build --strict && python scripts/check_security.py site` |
+   | Build command | `pip install -r requirements.txt && mkdocs build --strict && python scripts/check_security.py site && python scripts/check_site.py` |
    | Build output directory | `site` |
    | Root directory | Repository root; leave blank |
    | Environment variable | `PYTHON_VERSION=3.11.18` |
@@ -56,8 +56,14 @@ To use your own domain, add it under the Pages project's **Custom domains** tab 
 - `docs/assets/`: images and branding.
 - `mkdocs.yml`: site metadata and build configuration.
 
-See [SETUP.md](SETUP.md) for blog front matter, draft publishing, theme details, and image notes. Contact buttons point to [Mark Deniel on LinkedIn](https://www.linkedin.com/in/mark-d-819a57224/).
+See [SETUP.md](SETUP.md) for blog front matter, draft publishing, theme details, and image notes. Primary contact buttons open email options; LinkedIn is the secondary contact route. Set `extra.contact_email` in `mkdocs.yml` to update the email buttons, footer, content email links, structured data and security contact together. Update the email provider description in `docs/privacy.md` if changing providers. No booking calendar is used.
 
 ## Credits
 
 Adapted from the [Datalumina MkDocs website template](https://github.com/datalumina/mkdocs-website-template), using [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). Original template attribution and notices are retained; third-party dependencies remain subject to their respective licenses.
+
+## Social previews
+
+Page-specific 1200 × 627 JPEG cards are committed in `docs/assets/social/`. After adding pages or changing titles, build once, run `scripts/build_social_cards.py` with Python and Pillow on macOS, then build again. The generator uses the system Helvetica font; it is a development tool and is not required in production. New pages fall back to the default brand card until their card is generated.
+
+See `AUDIT-IMPLEMENTATION.md` for the November 2026 audit changes and account-level follow-up items.

@@ -10,7 +10,7 @@ The production build runs:
 ```sh
 pip install -r requirements.txt
 mkdocs build --strict
-python scripts/check_security.py site
+python scripts/check_security.py site && python scripts/check_site.py
 ```
 
 `docs/_headers` restricts scripts and styles to this site, disables inline event

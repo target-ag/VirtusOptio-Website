@@ -1,0 +1,15 @@
+{% extends "home.html" %}
+{% block title %}{{ seo.title | e }}{% endblock %}
+{% block main_content %}
+<article class="legal-page content-page">
+  <header class="legal-header">
+    <p class="legal-eyebrow">{{ page.meta.eyebrow | default('Virtus Optio') | e }}</p>
+    <h1>{{ (page.meta.title or page.title) | e }}</h1>
+    <p class="legal-description">{{ page.meta.description | e }}</p>
+  </header>
+  <div class="legal-prose">{{ page.content }}</div>
+  {% if page.file.src_uri != 'contact.md' %}
+  <div class="content-cta"><a class="call-button" href="mailto:{{ config.extra.contact_email | e }}" data-email-contact>Email me {% include "partials/arrow-up-right.html" %}</a></div>
+  {% endif %}
+</article>
+{% endblock %}

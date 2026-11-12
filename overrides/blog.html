@@ -7,13 +7,13 @@
   <header class="journal-intro">
     <p class="journal-label">Blog{% if current_category %} · Category{% elif page.name %} · Archive{% endif %}</p>
     <h1>{{ journal_title | e }}</h1>
-    <p class="journal-description">{{ page.meta.description | default('Practical strategies', true) }}</p>
+    <p class="journal-description">{{ seo.description }}</p>
   </header>
 
   <nav class="journal-categories" aria-label="Blog categories">
     <a href="{{ 'blog/' | url }}"{% if not current_category and not page.name %} aria-current="page"{% endif %}>All posts</a>
     <a href="{{ 'blog/category/business-growth/' | url }}"{% if current_category == 'Business Growth' %} aria-current="page"{% endif %}>Business Growth</a>
-    <a href="{{ 'blog/category/sales-acquisition/' | url }}"{% if current_category == 'Sales & Acquisition' %} aria-current="page"{% endif %}>Sales &amp; Acquisition</a>
+    {% if 'Sales & Acquisition' in published_categories %}<a href="{{ 'blog/category/sales-acquisition/' | url }}"{% if current_category == 'Sales & Acquisition' %} aria-current="page"{% endif %}>Sales &amp; Acquisition</a>{% endif %}
   </nav>
 
   <div id="business" class="journal-content">

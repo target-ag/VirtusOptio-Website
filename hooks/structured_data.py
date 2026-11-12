@@ -44,11 +44,13 @@ def _date_text(value):
 
 def _publisher(config, base):
     return {
-        "@type": "Organization",
+        "@type": ["Organization", "ProfessionalService"],
         "@id": base + "#organization",
         "name": config.site_name,
         "url": base,
         "logo": urljoin(base, LOGO_PATH),
+        "sameAs": [AUTHOR_URL],
+        "founder": {"@id": base + "about/#person"},
     }
 
 
@@ -56,11 +58,11 @@ def _homepage(config, base):
     organization = _publisher(config, base)
     organization.update({
         "description": config.site_description,
-        "email": "virtusoptio@gmail.com",
+        "email": config.extra["contact_email"],
+        "vatID": config.extra["vat_id"],
         "contactPoint": {
             "@type": "ContactPoint",
             "url": "https://wa.me/31616125169",
-            "telephone": "+31616125169",
         },
         "identifier": {
             "@type": "PropertyValue",
@@ -72,6 +74,15 @@ def _homepage(config, base):
         "@context": "https://schema.org",
         "@graph": [
             organization,
+            {
+                "@type": "Person",
+                "@id": base + "about/#person",
+                "name": AUTHOR_NAME,
+                "url": base + "about/",
+                "sameAs": [AUTHOR_URL],
+                "image": urljoin(base, "assets/mark-deniel-portrait-640.webp"),
+                "worksFor": {"@id": base + "#organization"},
+            },
             {
                 "@type": "WebSite",
                 "@id": base + "#website",
@@ -89,6 +100,9 @@ def _article(page, config, base):
     canonical = _absolute_url(page.canonical_url or page.url, base)
     author_name = meta.get("author_name") or AUTHOR_NAME
     author = {"@type": "Person", "name": author_name}
+    if author_name == AUTHOR_NAME:
+        author["@id"] = base + "about/#person"
+        author["sameAs"] = [AUTHOR_URL]
     author_url = _absolute_url(meta.get("author_url"), base)
     if author_url or author_name == AUTHOR_NAME:
         author["url"] = author_url or AUTHOR_URL
@@ -137,7 +151,7 @@ def on_page_context(context, *, page, config, nav):
         return context
     base = base.rstrip("/") + "/"
 
-    if page.file.src_uri == "index.md":
+    if page.file.src_uri in {"index.md", "about.md", "services/index.md", "contact.md"}:
         data = _homepage(config, base)
     elif isinstance(page, Post) and not page.config.draft:
         data = _article(page, config, base)

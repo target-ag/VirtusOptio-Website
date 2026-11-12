@@ -1,2 +1,5 @@
 /blog/category/business /blog/category/business-growth/ 301
 /blog/category/business/ /blog/category/business-growth/ 301
+# Preserve the published article URL after switching to date-free URLs.
+/blog/2026/10/26/three-ways-to-grow-a-business/ /blog/three-ways-to-grow-a-business/ 301
+/blog/2026/10/26/three-ways-to-grow-a-business /blog/three-ways-to-grow-a-business/ 301
