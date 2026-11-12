@@ -6,7 +6,7 @@
   const mobile = window.matchMedia("(max-width: 640px)");
   const menuToggle = header.querySelector("[data-menu-toggle]");
   const menu = header.querySelector(".header-menu");
-  const themeToggle = header.querySelector(".theme-toggle");
+  const linkedIn = header.querySelector(".site-contact");
   let previousY = null;
   let latestY = 0;
   let documentHeight = Infinity;
@@ -55,15 +55,15 @@
   }
 
   function syncMenuOrder() {
-    if (!menu || !themeToggle) return;
+    if (!menu || !linkedIn) return;
     const actions = menu.parentElement;
     const focused = document.activeElement;
     // Keep reading/tab order aligned with the responsive visual order, using
     // the same links rather than separate mobile and desktop controls.
     if (mobile.matches) {
       if (actions.lastElementChild !== menu) actions.appendChild(menu);
-    } else if (menu.nextElementSibling !== themeToggle) {
-      actions.insertBefore(menu, themeToggle);
+    } else if (menu.nextElementSibling !== linkedIn) {
+      actions.insertBefore(menu, linkedIn);
     }
     if (menu.contains(focused) && document.activeElement !== focused) {
       focused.focus({ preventScroll: true });

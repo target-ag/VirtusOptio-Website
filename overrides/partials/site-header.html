@@ -5,9 +5,10 @@
     <nav class="site-navigation" aria-label="Main navigation">
       <a href="mailto:{{ config.extra.contact_email | e }}" data-email-contact>Contact</a>
       <a href="{{ 'blog/' | url }}">Blog</a>
+      <a href="{{ 'about/' | url }}">About Me</a>
     </nav>
-    <a class="site-contact" href="{{ 'about/' | url }}">About Me {% include "partials/arrow-up-right.html" %}</a>
     </div>
+    <a class="site-contact" href="https://www.linkedin.com/in/mark-d-819a57224/" target="_blank" rel="noopener noreferrer">LinkedIn {% include "partials/arrow-up-right.html" %}</a>
     <!--LANGUAGE_SWITCH-->
     {% include "partials/theme-toggle.html" %}
     <button class="mobile-menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" hidden>
