@@ -54,6 +54,8 @@ class DutchPage(HTMLParser):
         if parsed.scheme not in {'http', 'https'} or parsed.netloc != urlsplit(self.page_url).netloc:
             return value
         path = parsed.path
+        if path.startswith("/assets/blog/three-ways-grow-business-") and "-nl-" not in path:
+            path = path.replace("three-ways-grow-business-", "three-ways-grow-business-nl-")
         if not resource and path in self.page_paths:
             path = '/nl' + path
         return urlunsplit(('', '', path, parsed.query, parsed.fragment))
@@ -66,7 +68,7 @@ class DutchPage(HTMLParser):
         if not isinstance(value, str): return value
         if key == 'inLanguage': return 'nl'
         if key in {'description', 'headline', 'articleSection'}: return self.translate(value)
-        if key in {'url', '@id'} and urlsplit(value).netloc == urlsplit(self.page_url).netloc:
+        if key in {'url', '@id', 'image'} and urlsplit(value).netloc == urlsplit(self.page_url).netloc:
             # Keep shared entity IDs stable; localize page and article references.
             if key == '@id' and urlsplit(value).fragment in {'organization','person','website'}:return value
             return urljoin(self.page_url,self.local_url(value))
