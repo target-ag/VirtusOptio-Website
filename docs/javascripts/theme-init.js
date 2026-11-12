@@ -5,3 +5,6 @@ try {
 } catch (_) {
   document.documentElement.dataset.theme = "light";
 }
+
+// Reserve the mobile navigation layout before the deferred controls load.
+document.documentElement.classList.add("js");
