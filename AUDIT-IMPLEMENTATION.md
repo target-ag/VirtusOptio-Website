@@ -22,7 +22,7 @@ Source: NOMAXX audit dated 11 November 2026, supplied by Markos. Changes prepare
 
 ## User choices and outstanding inputs
 
-- Keep the site in English for this update.
+- English remains the default language. At Markos’s request, a complete Dutch version is available under `/nl/`, with an EN/NL switch on matching pages.
 - No booking link: enquiries should go to email or LinkedIn.
 - Markos is setting up domain email. Do not install SPF `-all` or null MX while that setup is in progress. Use the chosen provider's actual MX, SPF and DKIM records and validate alignment before enforcing DMARC.
 - The currently published Gmail address remains the temporary contact. Replace `extra.contact_email` when Markos supplies the new address and update the provider description in the privacy policy if applicable.

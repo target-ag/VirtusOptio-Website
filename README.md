@@ -67,3 +67,11 @@ Adapted from the [Datalumina MkDocs website template](https://github.com/datalum
 Page-specific 1200 × 627 JPEG cards are committed in `docs/assets/social/`. After adding pages or changing titles, build once, run `scripts/build_social_cards.py` with Python and Pillow on macOS, then build again. The generator uses the system Helvetica font; it is a development tool and is not required in production. New pages fall back to the default brand card until their card is generated.
 
 See `AUDIT-IMPLEMENTATION.md` for the November 2026 audit changes and account-level follow-up items.
+
+## English and Dutch
+
+English remains the default at `/`. Every generated page has a Dutch counterpart under `/nl/`, with a page-preserving EN/NL switch, self-canonical URL and reciprocal `hreflang` links (`x-default` points to English). No automatic language redirect, translation service or additional browser storage is used.
+
+`translations/nl.json` holds reviewed Dutch translations keyed by the exact English source text. `translations/nl-ui.json` covers dynamic interface messages. `hooks/localization.py` generates the Dutch static pages and a Dutch script bundle before CSP hashes are finalized. Brand names, public contact values, URLs and storage keys remain intact. The Dutch pages reuse the existing design and assets.
+
+When editing English copy, add the corresponding Dutch translation. Missing strings stop the build and are listed in `.cache/missing-translations.json`, so an edit cannot silently publish a stale or partially translated page. Do not edit generated files under `site/nl/`. After changing page titles, regenerate social cards as described above. `scripts/check_site.py` validates both languages and their alternates.

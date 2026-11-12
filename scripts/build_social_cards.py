@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parent.parent
 FONT = '/System/Library/Fonts/Helvetica.ttc'
 
-def make_card(title, filename):
+def make_card(title, filename, lang="en"):
     canvas = Image.new('RGB', (1200, 627), '#f9f9f9')
     draw = ImageDraw.Draw(canvas)
     draw.rectangle((0, 0, 20, 627), fill='#2D57C7')
@@ -18,7 +18,7 @@ def make_card(title, filename):
     draw.line((72, 113, 1128, 113), fill='#e1e5ec', width=2)
     label = title.removesuffix(' — Virtus Optio').removesuffix(' | Virtus Optio')
     if label.startswith('Virtus Optio — '):
-        label = 'Ethical selling.\nPractical sales systems.'
+        label = 'Ethisch verkopen.\nPraktische verkoopsystemen.' if lang == 'nl' else 'Ethical selling.\nPractical sales systems.'
     for size in range(66, 33, -2):
         font = ImageFont.truetype(FONT, size)
         lines = []
@@ -37,7 +37,7 @@ def make_card(title, filename):
     for line in lines:
         draw.text((72, y), line, font=font, fill='#171b24')
         y += size + 14
-    draw.text((72, 518), 'Better conversations. Stronger relationships.', font=ImageFont.truetype(FONT, 26), fill='#606773')
+    draw.text((72, 518), ('Betere gesprekken. Sterkere relaties.' if lang == 'nl' else 'Better conversations. Stronger relationships.'), font=ImageFont.truetype(FONT, 26), fill='#606773')
     draw.text((72, 563), 'virtusoptio.com', font=ImageFont.truetype(FONT, 23), fill='#2D57C7')
     canvas.save(filename, 'JPEG', quality=90, optimize=True)
 
@@ -46,6 +46,7 @@ if __name__ == '__main__':
     output.mkdir(parents=True, exist_ok=True)
     manifest = json.loads((ROOT / '.cache/social-cards.json').read_text())
     for item in manifest:
-        make_card(item['title'], output / (item['key'] + '.jpg'))
+        make_card(item['title'], output / (item['key'] + '.jpg'), item.get('lang', 'en'))
     make_card('Virtus Optio — Ethical Selling & Sales Systems', output / 'default.jpg')
-    print(f'Generated {len(manifest) + 1} social cards.')
+    make_card('Virtus Optio — Ethisch verkopen & verkoopsystemen', output / 'nl-default.jpg', 'nl')
+    print(f'Generated {len(manifest) + 2} social cards.')

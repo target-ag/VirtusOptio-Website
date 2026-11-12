@@ -9,6 +9,7 @@ hooks:
   - hooks/assets.py
   - hooks/structured_data.py
   - hooks/seo.py
+  - hooks/localization.py
 
 nav:
   - Home:

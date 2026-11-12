@@ -3,6 +3,7 @@ import base64
 import hashlib
 import re
 from html.parser import HTMLParser
+from mkdocs.plugins import event_priority
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -61,12 +62,14 @@ def on_config(config):
     base_path = urlsplit(config.site_url).path.rstrip("/")
     config.extra["site_styles"] = css.replace("../assets/", f"{base_path}/assets/").strip()
     js = "\n".join((ROOT / "docs/javascripts" / name).read_text() for name in SCRIPTS)
+    config.extra["site_script_source"] = js
     js_fingerprint = hashlib.sha256(js.encode()).hexdigest()[:12]
     config.extra["site_js"] = f"javascripts/site-{js_fingerprint}.js"
     config.extra["theme_init"] = init
     return config
 
 
+@event_priority(-200)
 def on_post_build(config):
     site = Path(config.site_dir)
     css = "\n".join((ROOT / "docs/stylesheets" / name).read_text() for name in STYLES)

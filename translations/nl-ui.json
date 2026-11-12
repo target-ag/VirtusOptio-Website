@@ -1,0 +1,16 @@
+{
+  "Switch to light theme": "Schakel naar het lichte thema",
+  "Switch to dark theme": "Schakel naar het donkere thema",
+  "Close menu": "Menu sluiten",
+  "Open menu": "Menu openen",
+  "Dark": "Donker",
+  "Light": "Licht",
+  "No theme saved": "Geen thema opgeslagen",
+  "Browser storage is unavailable": "Browseropslag is niet beschikbaar",
+  "Use your browser's site-data settings to manage stored preferences.": "Gebruik de instellingen voor websitegegevens in je browser om opgeslagen voorkeuren te beheren.",
+  "Saved theme cleared. Light mode is now active.": "Opgeslagen thema gewist. De lichte weergave is nu actief.",
+  "No saved theme to clear. Light mode is active.": "Er is geen opgeslagen thema om te wissen. De lichte weergave is actief.",
+  "The browser could not clear this preference. Use its site-data settings instead.": "De browser kon deze voorkeur niet wissen. Gebruik de instellingen voor websitegegevens.",
+  "Email address copied.": "E-mailadres gekopieerd.",
+  "Automatic copying is unavailable in this browser.": "Automatisch kopiëren is niet beschikbaar in deze browser."
+}
