@@ -33,7 +33,7 @@ html { scroll-padding-top: 110px; }
   border-radius: 999px;
   color: #fff;
   background: var(--button-fill);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   line-height: 1.5;
   white-space: nowrap;
@@ -96,7 +96,7 @@ html { scroll-padding-top: 110px; }
     line-height: 1.5;
   }
   .site-header .site-navigation a:hover { color: var(--accent); background: var(--line); }
-  .site-header .site-contact { justify-content: flex-start; min-height: 44px; font-size: 15px; border-radius: 12px; }
+  .site-header .site-contact { justify-content: flex-start; min-height: 44px; font-size: 16px; border-radius: 12px; }
   .site-header .theme-toggle { grid-area: 1 / 2; justify-self: end; width: 44px; height: 44px; }
   .js .mobile-menu-toggle {
     grid-area: 1 / 3;
