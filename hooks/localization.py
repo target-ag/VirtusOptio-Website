@@ -33,6 +33,7 @@ class DutchPage(HTMLParser):
         self.json_ld = False
         self.raw_text = ''
         self.svg_depth = 0
+        self.language_switch_link = False
 
     def translate(self, value):
         key = value.strip()
@@ -79,6 +80,7 @@ class DutchPage(HTMLParser):
             if tag == 'svg':self.svg_depth += 1
             self.parts.append(self.get_starttag_text());return
         attributes=dict(attrs)
+        is_language_switch = tag == 'a' and attributes.get('data-language-switch') == 'true'
         if tag in {'script','style'}:
             self.raw_tag=tag
             self.raw_text=''
@@ -88,6 +90,9 @@ class DutchPage(HTMLParser):
         for name,value in attrs:
             if value is None:rewritten.append(name);continue
             if tag=='html' and name=='lang':value='nl'
+            elif is_language_switch and name=='href':value=urlsplit(self.page_url).path
+            elif is_language_switch and name in {'hreflang','lang'}:value='en'
+            elif is_language_switch and name=='title':value='Schakel naar Engels'
             elif name in TRANSLATED_ATTRIBUTES:value=self.translate(value)
             elif tag=='meta' and name=='content':
                 kind=attributes.get('name') or attributes.get('property')
@@ -114,8 +119,9 @@ class DutchPage(HTMLParser):
             elif name=='aria-current' and is_language_link:
                 continue
             rewritten.append(f'{name}="{escape(value,quote=True)}"')
-        if is_language_link and attributes['hreflang']=='nl':rewritten.append('aria-current="page"')
+        if is_language_link and not is_language_switch and attributes['hreflang']=='nl':rewritten.append('aria-current="page"')
         self.parts.append('<'+tag+(' '+' '.join(rewritten) if rewritten else '')+'>')
+        if is_language_switch:self.language_switch_link = True
 
     def handle_startendtag(self,tag,attrs):
         self.handle_starttag(tag,attrs)
@@ -133,10 +139,13 @@ class DutchPage(HTMLParser):
             self.parts.append(text)
             self.raw_tag=None
         self.parts.append('</'+tag+'>')
+        if tag=='a':self.language_switch_link=False
 
     def handle_data(self,text):
         if self.raw_tag:self.raw_text+=text
         elif self.svg_depth:self.parts.append(text)
+        elif self.language_switch_link and text.strip()=='NL':
+            self.parts.append(text.replace('NL','EN'))
         else:self.parts.append(escape(self.translate(text),quote=False))
 
     def handle_comment(self,text):self.parts.append('<!--'+text+'-->')
@@ -169,9 +178,8 @@ def on_post_build(config):
                    f'<link rel="alternate" hreflang="x-default" href="{escape(en_url)}">\n')
         source=source.replace('</head>',alternate+'</head>')
         switch=(f'<nav class="language-switch" aria-label="Language">'
-                f'<a href="{path}" hreflang="en" lang="en" aria-current="page" title="View this page in English">EN</a>'
-                f'<span aria-hidden="true">/</span>'
-                f'<a href="/nl{path}" hreflang="nl" lang="nl" title="View this page in Dutch">NL</a></nav>')
+                f'<a href="/nl{path}" hreflang="nl" lang="nl" data-language-switch="true" '
+                f'title="Switch to Dutch">NL</a></nav>')
         source=source.replace('<!--LANGUAGE_SWITCH-->',switch)
         page.write_text(source)
         parser=DutchPage(catalog,en_url,paths,script_path)
