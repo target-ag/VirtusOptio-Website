@@ -44,11 +44,17 @@ def _date_text(value):
 
 def _publisher(config, base):
     return {
-        "@type": ["Organization", "ProfessionalService"],
+        "@type": "Organization",
+        "additionalType": "https://schema.org/ProfessionalService",
         "@id": base + "#organization",
         "name": config.site_name,
         "url": base,
-        "logo": urljoin(base, LOGO_PATH),
+        "logo": {
+            "@type": "ImageObject",
+            "url": urljoin(base, LOGO_PATH),
+            "width": 2137,
+            "height": 736,
+        },
         "sameAs": [AUTHOR_URL],
         "founder": {"@id": base + "about/#person"},
     }
@@ -69,6 +75,9 @@ def _homepage(config, base):
         },
         "contactPoint": {
             "@type": "ContactPoint",
+            "contactType": "sales",
+            "email": config.extra["contact_email"],
+            "telephone": "+31616125169",
             "url": "https://wa.me/31616125169",
         },
         "identifier": {
